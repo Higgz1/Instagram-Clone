@@ -5,6 +5,7 @@
 </ion-header>
 
 <ion-content>
+
   <ion-refresher slot="fixed" (ionRefresh)="refresh($event)" pullMin="100" pullMax="200">
     <ion-refresher-content 
       pullingIcon="arrow-down-outline" 
@@ -13,6 +14,16 @@
       refreshingText="">
     </ion-refresher-content>
   </ion-refresher>
+
+  <div class="main-contaier">
+
+    <div class="stories" *ngFor="let item of combined">
+        <ion-avatar class="stories-image">
+          <img [src]="item.user.picture.thumbnail" />
+        </ion-avatar>
+    </div>
+    
+  </div>
 
   <ion-card *ngFor="let item of combined">
     <ion-item>

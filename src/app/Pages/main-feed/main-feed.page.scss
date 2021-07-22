@@ -1,12 +1,37 @@
 .social-cards ion-col {
-    padding: 0;
-  }
-  .username{
-    margin-top: 5px;
-    margin-left: 5px;
-    margin-bottom: 5px;
-    font-weight: 500;
-    line-height: 1;
+  padding: 0;
+}
+.username {
+  margin-top: 5px;
+  margin-left: 5px;
+  margin-bottom: 5px;
+  font-weight: 500;
+  line-height: 1;
+}
+
+.stories {
+  overflow-x: auto;
+  overflow-y: hidden;
+  white-space: nowrap;
+  display: table-cell;
+  // padding-top: 10px;
+  // padding-bottom: 10px;
+
+
+}
+.stories-image{
+  padding: 8px;
+
+}
+
+
+
+.main-contaier {
+  // height: 120px;
+  // display: inline-block;
+  overflow-x: auto;
+  overflow-y: hidden;
+  // border-bottom: 1px;
 }
 
 // .image{

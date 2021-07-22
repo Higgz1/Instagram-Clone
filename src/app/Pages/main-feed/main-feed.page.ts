@@ -3,6 +3,7 @@ import { LoadingController } from '@ionic/angular';
 import { ImagesService } from 'src/app/Services/Images/images.service';
 import { UsersService } from 'src/app/Services/Users/users.service';
 
+
 @Component({
   selector: 'app-main-feed',
   templateUrl: './main-feed.page.html',
@@ -20,7 +21,8 @@ export class MainFeedPage implements OnInit {
 
   constructor(private usersService: UsersService,
     private imagesService: ImagesService,
-    public loadingController: LoadingController) { }
+    public loadingController: LoadingController
+    ) { }
 
   ngOnInit() {
   }
