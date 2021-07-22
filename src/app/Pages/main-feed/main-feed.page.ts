@@ -30,7 +30,12 @@ export class MainFeedPage implements OnInit {
   }
 
   async loadData() {
+    //page logic
     this.page = Math.floor((Math.random() * 100) + 1);
+    if(this.page >= 90){
+      this.page =this.page -40 ;
+    }
+
     const loading = await this.loadingController.create({
       cssClass: 'my-custom-class',
       message: 'Please wait...',
