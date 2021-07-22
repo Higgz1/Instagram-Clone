@@ -1,0 +1,54 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Instagram</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card *ngFor="let item of combined">
+    <ion-item>
+      <ion-avatar item-start>
+        <img [src]="item.user.picture.thumbnail" />
+      </ion-avatar>
+      <!-- <h6 class="username">{{item.user.login.username}}</h6> -->
+      <ion-text class="username" color="dark">
+        <h6 class="username">{{item.user.login.username}}</h6>
+      </ion-text>
+    </ion-item>
+
+    <img class="image" [src]="item.picture.download_url" />
+
+    <ion-card-content>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit,  labore et dolore magna aliqua.
+      </p>
+ 
+    </ion-card-content>
+
+    <!-- <ion-row>
+      <ion-col>
+        <button ion-button icon-start clear small>
+          <ion-icon name="thumbs-up"></ion-icon>
+          <div>12 Likes</div>
+        </button>
+      </ion-col>
+      <ion-col>
+        <button ion-button icon-start clear small>
+          <ion-icon name="text"></ion-icon>
+          <div>4 Comments</div>
+        </button>
+      </ion-col>
+      <ion-col align-self-center text-center>
+        <ion-note> 11h ago </ion-note>
+      </ion-col>
+    </ion-row> -->
+  </ion-card>
+
+  <ion-infinite-scroll threshold="100px" (ionInfinite)="moreData($event)">
+    <ion-infinite-scroll-content
+      loadingSpinner="bubbles"
+      loadingText="Loading more data...">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+
+</ion-content>
