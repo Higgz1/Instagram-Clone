@@ -30,7 +30,7 @@ export class MainFeedPage implements OnInit {
   }
 
   async loadData() {
-    this.page = 1;
+    this.page = Math.floor((Math.random() * 100) + 1);
     const loading = await this.loadingController.create({
       cssClass: 'my-custom-class',
       message: 'Please wait...',
@@ -77,6 +77,12 @@ export class MainFeedPage implements OnInit {
       });
     });
     event.target.complete();
+  }
+
+  refresh(event){
+    this.loadData().then(()=>{
+      event.target.complete();
+    });
   }
 
 
