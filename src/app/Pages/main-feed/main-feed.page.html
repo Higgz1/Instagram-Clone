@@ -1,0 +1,69 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Instagram</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-refresher slot="fixed" (ionRefresh)="refresh($event)" pullMin="100" pullMax="200">
+    <ion-refresher-content 
+      pullingIcon="arrow-down-outline" 
+      pullingText="Pull to refresh" 
+      refreshingSpinner="crescent"
+      refreshingText="">
+    </ion-refresher-content>
+  </ion-refresher>
+
+  <ion-slides class="slides" [options]="set">
+    <ion-slide *ngFor="let item of combined">
+      <ion-avatar id="stories-image" (click)="storiesImage(item)" >
+        <img id="avatar-img" [src]="item.user.picture.thumbnail" />
+      </ion-avatar>
+    </ion-slide>
+  </ion-slides>
+
+  <ion-card *ngFor="let item of combined">
+    <ion-item>
+      <ion-avatar item-start>
+        <img [src]="item.user.picture.thumbnail" />
+      </ion-avatar>
+      <ion-text>
+        <h6 class="username">{{item.user.login.username}}</h6>
+        <p class="location">{{item.user.location.country}}</p>
+      </ion-text>
+      <ion-icon (click)="test()" slot="end" name="ellipsis-vertical-sharp" ></ion-icon>
+    </ion-item>
+
+    <img class="image" [src]="item.picture.download_url" />
+
+    <ion-row >
+      <ion-item lines="none" class="social-icons">
+        <ion-icon class="icons" (click)="test1()"  name="heart-outline" ></ion-icon>
+        <ion-icon class="icons" (click)="test2()"  name="chatbubble-outline"></ion-icon>
+        <ion-icon class="icons" (click)="test3()"  name="paper-plane-outline"></ion-icon>
+        <ion-icon (click)="test4()" slot="end" name="bookmark-outline"></ion-icon>
+      </ion-item>
+
+    </ion-row>
+
+
+    <ion-card-content class="card-content">
+      <div class="likes" >12 Likes</div>
+      <p class="comment">
+        <span id="comment-username">{{item.user.login.username}}</span> Lorem ipsum dolor sit amet, consectetur adipiscing elit,  labore et dolore magna aliqua.
+      </p>
+ 
+    </ion-card-content>
+
+
+  </ion-card>
+
+  <ion-infinite-scroll threshold="100px" (ionInfinite)="moreData($event)">
+    <ion-infinite-scroll-content
+      loadingSpinner="bubbles"
+      loadingText="Loading more data...">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+
+</ion-content>
