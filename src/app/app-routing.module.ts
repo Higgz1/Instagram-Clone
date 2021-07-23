@@ -11,6 +11,10 @@ const routes: Routes = [
     redirectTo: 'main-feed',
     pathMatch: 'full'
   },
+  {
+    path: 'stories-modal',
+    loadChildren: () => import('./pages/stories-modal/stories-modal.module').then( m => m.StoriesModalPageModule)
+  },
 
 ];
 

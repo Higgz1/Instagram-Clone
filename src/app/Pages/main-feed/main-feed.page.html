@@ -18,7 +18,7 @@
   <div class="main-contaier">
 
     <div class="stories" *ngFor="let item of combined">
-        <ion-avatar class="stories-image">
+        <ion-avatar class="stories-image" (click)="storiesImage(item)" >
           <img [src]="item.user.picture.thumbnail" />
         </ion-avatar>
     </div>

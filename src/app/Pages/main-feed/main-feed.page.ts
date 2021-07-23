@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { LoadingController } from '@ionic/angular';
+import { LoadingController, ModalController } from '@ionic/angular';
 import { ImagesService } from 'src/app/Services/Images/images.service';
 import { UsersService } from 'src/app/Services/Users/users.service';
+import { StoriesModalPage } from '../stories-modal/stories-modal.page';
 
 
 @Component({
@@ -21,8 +22,9 @@ export class MainFeedPage implements OnInit {
 
   constructor(private usersService: UsersService,
     private imagesService: ImagesService,
-    public loadingController: LoadingController
-    ) { }
+    public loadingController: LoadingController,
+    public modalController: ModalController
+  ) { }
 
   ngOnInit() {
   }
@@ -34,8 +36,8 @@ export class MainFeedPage implements OnInit {
   async loadData() {
     //page logic
     this.page = Math.floor((Math.random() * 100) + 1);
-    if(this.page >= 90){
-      this.page =this.page -40 ;
+    if (this.page >= 90) {
+      this.page = this.page - 40;
     }
 
     const loading = await this.loadingController.create({
@@ -86,10 +88,25 @@ export class MainFeedPage implements OnInit {
     event.target.complete();
   }
 
-  refresh(event){
-    this.loadData().then(()=>{
+  refresh(event) {
+    this.loadData().then(() => {
       event.target.complete();
     });
+  }
+
+  storiesImage(item) {
+    console.log('user',item.user);
+    this.presentModal();
+    
+
+  }
+
+  async presentModal() {
+    const modal = await this.modalController.create({
+      component: StoriesModalPage,
+      cssClass: 'my-custom-class'
+    });
+    return await modal.present();
   }
 
 
