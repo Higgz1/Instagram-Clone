@@ -20,32 +20,24 @@
   font-size: 12px;
 }
 
-.stories {
-  overflow-x: auto;
-  overflow-y: hidden;
-  white-space: nowrap;
-  display: table-cell;
-  padding-top: 10px;
-  padding-bottom: 5px;
-}
+// .stories {
+//   overflow-x: auto;
+//   overflow-y: hidden;
+//   white-space: nowrap;
+//   display: table-cell;
+//   padding-top: 10px;
+//   padding-bottom: 5px;
+// }
 
-.stories-image {
+#stories-image {
   padding-left: 5px;
   padding-right: 5px;
   padding-bottom: 1px;
-  padding-top: 5px;
+  padding-top: 8px;
 }
-.avatar-img {
+#avatar-img {
   border: 3px solid;
   border-color: #77acf1;
-}
-
-.main-contaier {
-  // height: 120px;
-  // display: inline-block;
-  overflow-x: auto;
-  overflow-y: hidden;
-  // border-bottom: 1px;
 }
 
 ion-card {

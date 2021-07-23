@@ -15,15 +15,13 @@
     </ion-refresher-content>
   </ion-refresher>
 
-  <div class="main-contaier">
-
-    <div class="stories" *ngFor="let item of combined">
-        <ion-avatar class="stories-image" (click)="storiesImage(item)" >
-          <img class="avatar-img" [src]="item.user.picture.thumbnail" />
-        </ion-avatar>
-    </div>
-    
-  </div>
+  <ion-slides class="slides" [options]="set">
+    <ion-slide *ngFor="let item of combined">
+      <ion-avatar id="stories-image" (click)="storiesImage(item)" >
+        <img id="avatar-img" [src]="item.user.picture.thumbnail" />
+      </ion-avatar>
+    </ion-slide>
+  </ion-slides>
 
   <ion-card *ngFor="let item of combined">
     <ion-item>

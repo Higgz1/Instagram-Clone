@@ -19,6 +19,11 @@ export class MainFeedPage implements OnInit {
   newUsers: any;
   newImages: any;
   newCombined: any;
+  set={
+    slidesPerView:5,
+    spaceBetween:10,
+    slidesOffsetBefore:0,
+  };
 
 
   constructor(private usersService: UsersService,
