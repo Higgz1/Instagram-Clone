@@ -19,7 +19,7 @@
 
     <div class="stories" *ngFor="let item of combined">
         <ion-avatar class="stories-image" (click)="storiesImage(item)" >
-          <img [src]="item.user.picture.thumbnail" />
+          <img class="avatar-img" [src]="item.user.picture.thumbnail" />
         </ion-avatar>
     </div>
     
@@ -30,38 +30,35 @@
       <ion-avatar item-start>
         <img [src]="item.user.picture.thumbnail" />
       </ion-avatar>
-      <!-- <h6 class="username">{{item.user.login.username}}</h6> -->
-      <ion-text class="username" color="dark">
+      <ion-text color="dark">
         <h6 class="username">{{item.user.login.username}}</h6>
+        <p class="location">{{item.user.location.country}}</p>
       </ion-text>
+      <ion-icon (click)="test()" slot="end" name="ellipsis-vertical-sharp" ></ion-icon>
     </ion-item>
 
     <img class="image" [src]="item.picture.download_url" />
 
-    <ion-card-content>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit,  labore et dolore magna aliqua.
+    <ion-row >
+      <ion-item lines="none" class="social-icons">
+        <ion-icon class="icons" (click)="test1()"  name="heart-outline" ></ion-icon>
+        <ion-icon class="icons" (click)="test2()"  name="chatbubble-outline"></ion-icon>
+        <ion-icon class="icons" (click)="test3()"  name="paper-plane-outline"></ion-icon>
+        <ion-icon (click)="test4()" slot="end" name="bookmark-outline"></ion-icon>
+      </ion-item>
+
+    </ion-row>
+
+
+    <ion-card-content class="card-content">
+      <div class="likes" >12 Likes</div>
+      <p class="comment">
+        <span id="comment-username">{{item.user.login.username}}</span> Lorem ipsum dolor sit amet, consectetur adipiscing elit,  labore et dolore magna aliqua.
       </p>
  
     </ion-card-content>
 
-    <!-- <ion-row>
-      <ion-col>
-        <button ion-button icon-start clear small>
-          <ion-icon name="thumbs-up"></ion-icon>
-          <div>12 Likes</div>
-        </button>
-      </ion-col>
-      <ion-col>
-        <button ion-button icon-start clear small>
-          <ion-icon name="text"></ion-icon>
-          <div>4 Comments</div>
-        </button>
-      </ion-col>
-      <ion-col align-self-center text-center>
-        <ion-note> 11h ago </ion-note>
-      </ion-col>
-    </ion-row> -->
+
   </ion-card>
 
   <ion-infinite-scroll threshold="100px" (ionInfinite)="moreData($event)">

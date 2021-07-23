@@ -2,11 +2,22 @@
   padding: 0;
 }
 .username {
+  font-weight: 550;
+  color: black;
   margin-top: 5px;
   margin-left: 5px;
   margin-bottom: 5px;
   font-weight: 500;
+  font-size: 15px;
   line-height: 1;
+}
+
+.location {
+  margin-top: 5px;
+  margin-left: 5px;
+  margin-bottom: 5px;
+  font-weight: 500;
+  font-size: 12px;
 }
 
 .stories {
@@ -15,19 +26,19 @@
   white-space: nowrap;
   display: table-cell;
   padding-top: 10px;
-  padding-bottom: 10px;
-
-
+  padding-bottom: 5px;
 }
-.stories-image{
+
+.stories-image {
   padding-left: 5px;
   padding-right: 5px;
   padding-bottom: 1px;
   padding-top: 5px;
-
 }
-
-
+.avatar-img {
+  border: 3px solid;
+  border-color: #77acf1;
+}
 
 .main-contaier {
   // height: 120px;
@@ -37,6 +48,42 @@
   // border-bottom: 1px;
 }
 
-// .image{
-//   height: 200px;
-// }
+ion-card {
+  margin: 10px 0px 10px;
+  border-radius: 0px;
+  box-shadow: rgb(0 0 0 / 0%) 0px 1px 0px -1px, rgb(0 0 0 / 0%) 0px 1px 1px 0px,
+    rgb(0 0 0 / 0%) 0px 1px 0px 0px;
+}
+.card-content {
+  padding: 0px 10px 0px 10px;
+}
+
+.likes {
+  font-weight: 550;
+  color: black;
+}
+
+.social-buttons {
+  font-size: 12px;
+  color: black;
+}
+
+.social-icons {
+  width: 100%;
+  border: 0px;
+}
+
+.item-native {
+  padding: 0px;
+}
+.icons {
+  padding-right: 20px;
+}
+
+#comment-username {
+  font-weight: 550;
+  color: black;
+}
+.comment {
+  font-size: 400;
+}

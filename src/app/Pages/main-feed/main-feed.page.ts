@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { LoadingController, ModalController } from '@ionic/angular';
 import { ImagesService } from 'src/app/Services/Images/images.service';
 import { UsersService } from 'src/app/Services/Users/users.service';
-import { StoriesModalPage } from '../stories-modal/stories-modal.page';
+// import { StoriesModalPage } from '../stories-modal/stories-modal.page';
+// import { StoriesModalPage } from '../stories-modal/stories-modal.page';
 
 
 @Component({
@@ -95,19 +96,17 @@ export class MainFeedPage implements OnInit {
   }
 
   storiesImage(item) {
-    console.log('user',item.user);
-    this.presentModal();
-    
-
+    console.log('user', item.user);
+    // this.presentModal();
   }
 
-  async presentModal() {
-    const modal = await this.modalController.create({
-      component: StoriesModalPage,
-      cssClass: 'my-custom-class'
-    });
-    return await modal.present();
-  }
+  // async presentModal() {
+  //   const modal = await this.modalController.create({
+  //     component: StoriesModalPage,
+  //     cssClass: 'my-custom-class'
+  //   });
+  //   return await modal.present();
+  // }
 
 
 
