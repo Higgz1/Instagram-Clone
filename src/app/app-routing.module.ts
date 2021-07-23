@@ -12,8 +12,8 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
-    path: 'stories-modal',
-    loadChildren: () => import('./pages/stories-modal/stories-modal.module').then( m => m.StoriesModalPageModule)
+    path: 'profile',
+    loadChildren: () => import('./pages/profile/profile.module').then( m => m.ProfilePageModule)
   },
 
 ];

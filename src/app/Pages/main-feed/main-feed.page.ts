@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { LoadingController, ModalController } from '@ionic/angular';
 import { ImagesService } from 'src/app/Services/Images/images.service';
 import { UsersService } from 'src/app/Services/Users/users.service';
-// import { StoriesModalPage } from '../stories-modal/stories-modal.page';
-// import { StoriesModalPage } from '../stories-modal/stories-modal.page';
+
+
 
 
 @Component({
@@ -19,10 +19,10 @@ export class MainFeedPage implements OnInit {
   newUsers: any;
   newImages: any;
   newCombined: any;
-  set={
-    slidesPerView:5,
-    spaceBetween:10,
-    slidesOffsetBefore:0,
+  set = {
+    slidesPerView: 5,
+    spaceBetween: 10,
+    slidesOffsetBefore: 0,
   };
 
 
@@ -40,7 +40,6 @@ export class MainFeedPage implements OnInit {
   }
 
   async loadData() {
-    //page logic
     this.page = Math.floor((Math.random() * 100) + 1);
     if (this.page >= 90) {
       this.page = this.page - 40;
@@ -55,7 +54,6 @@ export class MainFeedPage implements OnInit {
     this.usersService.getUsers(this.page).subscribe((resp: any) => {
       console.log('Users', resp.results);
       this.users = resp.results;
-
 
       this.imagesService.getImages(this.page).subscribe((resp: any) => {
         console.log('Images', resp);
@@ -99,19 +97,6 @@ export class MainFeedPage implements OnInit {
       event.target.complete();
     });
   }
-
-  storiesImage(item) {
-    console.log('user', item.user);
-    // this.presentModal();
-  }
-
-  // async presentModal() {
-  //   const modal = await this.modalController.create({
-  //     component: StoriesModalPage,
-  //     cssClass: 'my-custom-class'
-  //   });
-  //   return await modal.present();
-  // }
 
 
 
