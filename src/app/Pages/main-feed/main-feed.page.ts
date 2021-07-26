@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { LoadingController, ModalController } from '@ionic/angular';
 import { ImagesService } from 'src/app/Services/Images/images.service';
 import { UsersService } from 'src/app/Services/Users/users.service';
@@ -26,7 +27,9 @@ export class MainFeedPage implements OnInit {
   };
 
 
-  constructor(private usersService: UsersService,
+  constructor(
+    private router: Router,
+    private usersService: UsersService,
     private imagesService: ImagesService,
     public loadingController: LoadingController,
     public modalController: ModalController
@@ -88,14 +91,20 @@ export class MainFeedPage implements OnInit {
         this.combined.push(...this.newCombined)
 
       });
+      event.target.complete();
     });
-    event.target.complete();
   }
 
   refresh(event) {
     this.loadData().then(() => {
       event.target.complete();
     });
+  }
+
+  profile(user){
+    console.log(user)
+    this.router.navigate(['/profile', { user: JSON.stringify(user) }]);
+
   }
 
 

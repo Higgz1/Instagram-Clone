@@ -3,18 +3,19 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
-    path: 'main-feed',
-    loadChildren: () => import('./Pages/main-feed/main-feed.module').then( m => m.MainFeedPageModule)
-  },
-  {
     path: '',
     redirectTo: 'main-feed',
     pathMatch: 'full'
   },
   {
+    path: 'main-feed',
+    loadChildren: () => import('./pages/main-feed/main-feed.module').then( m => m.MainFeedPageModule)
+  },
+  {
     path: 'profile',
     loadChildren: () => import('./pages/profile/profile.module').then( m => m.ProfilePageModule)
   },
+
 
 ];
 

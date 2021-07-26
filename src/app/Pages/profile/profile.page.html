@@ -1,9 +1,31 @@
+
 <ion-header>
   <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
     <ion-title>Profile</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <ion-item>
+    <ion-avatar item-start (click)="profile(item.user)">
+      <img [src]="user.picture.thumbnail" />
+    </ion-avatar>
+    <ion-text>
+      <h6 class="username">{{user.login.username}}</h6>
+      <p class="location">{{user.location.country}}</p>
+    </ion-text>
+    <ion-text>
+      <h6 class="username">{{user.login.username}}</h6>
+      <p class="location">{{user.location.country}}</p>
+    </ion-text>
+    <ion-text>
+      <h6 class="username">{{user.login.username}}</h6>
+      <p class="location">{{user.location.country}}</p>
+    </ion-text>
+    
+  </ion-item>
 
 </ion-content>
