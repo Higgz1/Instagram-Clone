@@ -1,4 +1,3 @@
-
 <ion-header>
   <ion-toolbar>
     <ion-buttons slot="start">
@@ -10,22 +9,50 @@
 
 <ion-content>
   <ion-item>
-    <ion-avatar item-start (click)="profile(item.user)">
-      <img [src]="user.picture.thumbnail" />
+    <ion-avatar item-start>
+      <img [src]="user.picture.medium" />
     </ion-avatar>
     <ion-text>
-      <h6 class="username">{{user.login.username}}</h6>
-      <p class="location">{{user.location.country}}</p>
+      <h6 class="username">16</h6>
+      <p class="location">posts</p>
     </ion-text>
     <ion-text>
-      <h6 class="username">{{user.login.username}}</h6>
-      <p class="location">{{user.location.country}}</p>
+      <h6 class="username">578</h6>
+      <p class="location">Followers</p>
     </ion-text>
     <ion-text>
-      <h6 class="username">{{user.login.username}}</h6>
-      <p class="location">{{user.location.country}}</p>
+      <h6 class="username">16</h6>
+      <p class="location">Following</p>
     </ion-text>
-    
   </ion-item>
 
+  <ion-text>
+    <h6 class="username">{{user.login.username}}</h6>
+    <p class="location">{{user.location.country}}</p>
+  </ion-text>
+
+  <ion-segment value="home" (ionChange)="segmentChanged($event)">
+    <ion-segment-button value="home">
+      <ion-icon name="grid-outline"></ion-icon>
+    </ion-segment-button>
+    <ion-segment-button value="scroll">
+      <ion-icon name="layers-outline"></ion-icon>
+    </ion-segment-button>
+    <ion-segment-button value="like">
+      <ion-icon name="heart-outline"></ion-icon>
+    </ion-segment-button>
+    <ion-segment-button value="tagged">
+      <ion-icon name="file-tray-outline"></ion-icon>
+    </ion-segment-button>
+  </ion-segment>
+
+  <div>
+    <ion-grid>
+      <ion-row>
+        <ion-col size="4" size-md *ngFor="let image of Images">
+          <img class="image" [src]="image.download_url" />
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
 </ion-content>

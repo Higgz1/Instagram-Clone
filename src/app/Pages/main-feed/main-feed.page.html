@@ -59,6 +59,12 @@
 
   </ion-card>
 
+  <!-- <ion-fab slot="fixed" vertical="bottom" horizontal="end" >
+    <ion-fab-button (click)="ScrollToTop()">
+      <ion-icon name="arrow-up-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab> -->
+
   <ion-infinite-scroll threshold="100px" (ionInfinite)="moreData($event)">
     <ion-infinite-scroll-content
       loadingSpinner="bubbles"

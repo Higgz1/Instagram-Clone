@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
-import { LoadingController, ModalController } from '@ionic/angular';
+import { IonContent, LoadingController, ModalController } from '@ionic/angular';
 import { ImagesService } from 'src/app/Services/Images/images.service';
 import { UsersService } from 'src/app/Services/Users/users.service';
 
@@ -25,6 +25,8 @@ export class MainFeedPage implements OnInit {
     spaceBetween: 10,
     slidesOffsetBefore: 0,
   };
+
+  @ViewChild(IonContent, { static: false }) content: IonContent;
 
 
   constructor(
@@ -99,6 +101,10 @@ export class MainFeedPage implements OnInit {
     this.loadData().then(() => {
       event.target.complete();
     });
+  }
+
+  ScrollToTop() {
+    this.content.scrollToTop(1500);
   }
 
   profile(user){

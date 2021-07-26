@@ -6,10 +6,10 @@ import { Injectable } from '@angular/core';
 })
 export class ImagesService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient,) { }
 
   getImages(page){
-    return this.http.get('https://picsum.photos/v2/list?page='+page+'&limit=10');
-
+    return this.http.get('https://picsum.photos/v2/list?page='+page+'&limit=12');
   }
+
 }
