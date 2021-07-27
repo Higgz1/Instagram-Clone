@@ -19,7 +19,7 @@ export class PostsPage implements OnInit {
     this.user = JSON.parse(this.route.snapshot.paramMap.get('user')) || 0;
     this.nimages = JSON.parse(this.route.snapshot.paramMap.get('images')) || 0;
     this.id = JSON.parse(this.route.snapshot.paramMap.get('selectedId')) || 0;
-    this.scrollToLabel();
+    this.topImage();
 
   }
 
@@ -30,7 +30,7 @@ export class PostsPage implements OnInit {
     // this.scrollToLabel();
   }
 
-  scrollToLabel() {
+  topImage() {
     var first = this.id;
     this.images = this.nimages.sort(function (x, y) { return x.id == first ? -1 : y.id == first ? 1 : 0; });
     // console.log('new position',this.nimages);
