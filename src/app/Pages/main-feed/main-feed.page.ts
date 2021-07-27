@@ -25,6 +25,7 @@ export class MainFeedPage implements OnInit {
     spaceBetween: 10,
     slidesOffsetBefore: 0,
   };
+  public isShown = false;
 
   @ViewChild(IonContent, { static: false }) content: IonContent;
 
@@ -105,6 +106,18 @@ export class MainFeedPage implements OnInit {
 
   ScrollToTop() {
     this.content.scrollToTop(1500);
+  }
+
+  fabDisplay(event){
+    const screenSize = event.target.clientHeight;
+ 
+    let bottomPosition = screenSize + event.detail.scrollTop;
+    if(bottomPosition >= 5400){
+      this.isShown = true;
+    }else if(bottomPosition < 2000){
+      this.isShown = false;
+    }
+
   }
 
   profile(user){

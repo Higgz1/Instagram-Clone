@@ -9,7 +9,7 @@ export class UsersService {
   constructor(private http: HttpClient,) { }
 
   getUsers(page){
-    return this.http.get('https://randomuser.me/api/?page='+page+'&results=12');
+    return this.http.get('https://randomuser.me/api/?page='+page+'&results=10');
 
   }
 

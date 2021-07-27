@@ -1,10 +1,10 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Instagram</ion-title>
+    <ion-title (click)="ScrollToTop()">Instagram</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content [scrollEvents]="true" (ionScroll)="fabDisplay($event)">
 
   <ion-refresher slot="fixed" (ionRefresh)="refresh($event)" pullMin="100" pullMax="200">
     <ion-refresher-content 
@@ -28,14 +28,16 @@
       <ion-avatar item-start (click)="profile(item.user)">
         <img [src]="item.user.picture.thumbnail" />
       </ion-avatar>
-      <ion-text>
+      <ion-text (click)="profile(item.user)">
         <h6 class="username">{{item.user.login.username}}</h6>
         <p class="location">{{item.user.location.country}}</p>
       </ion-text>
       <ion-icon (click)="test()" slot="end" name="ellipsis-vertical-sharp" ></ion-icon>
     </ion-item>
+    <div  class="portrait">
+      <img class="image" [src]="item.picture.download_url" />
+    </div>
 
-    <img class="image" [src]="item.picture.download_url" />
 
     <ion-row >
       <ion-item lines="none" class="social-icons">
@@ -59,11 +61,11 @@
 
   </ion-card>
 
-  <!-- <ion-fab slot="fixed" vertical="bottom" horizontal="end" >
+  <ion-fab  *ngIf="isShown" slot="fixed" vertical="bottom" horizontal="end" >
     <ion-fab-button (click)="ScrollToTop()">
-      <ion-icon name="arrow-up-outline"></ion-icon>
+      <ion-icon name="chevron-up-outline"></ion-icon>
     </ion-fab-button>
-  </ion-fab> -->
+  </ion-fab>
 
   <ion-infinite-scroll threshold="100px" (ionInfinite)="moreData($event)">
     <ion-infinite-scroll-content
