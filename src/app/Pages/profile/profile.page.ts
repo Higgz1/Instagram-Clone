@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ImagesService } from 'src/app/Services/Images/images.service';
 
 @Component({
@@ -17,7 +17,9 @@ export class ProfilePage implements OnInit {
   
 
   constructor(private route: ActivatedRoute,
-    private imagesService: ImagesService,) {
+    private imagesService: ImagesService,
+    private router: Router,
+    ) {
     this.user = JSON.parse(this.route.snapshot.paramMap.get('user')) || 0;
   }
 
@@ -35,12 +37,14 @@ export class ProfilePage implements OnInit {
     }
 
     this.imagesService.getImages(this.page).subscribe((resp:any) => {
-      console.log(resp.length);
+
 
       this.Images = resp;
       this.posts = resp.length;
       this.followers = this.getFollowers();
       this.following = this.getFollowing();
+      console.log(this.Images);
+
     })
   }
 
@@ -50,6 +54,12 @@ export class ProfilePage implements OnInit {
 
   getFollowing() {
     return Math.floor((Math.random() * 10000) + 1);
+  }
+
+  viewPost(id){
+  
+    this.router.navigate(['/posts', ({ user: JSON.stringify(this.user),images:JSON.stringify(this.Images),selectedId:JSON.stringify(id)})]);
+
   }
 
 }
