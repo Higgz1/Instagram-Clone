@@ -8,8 +8,12 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
-    path: '',
-    loadChildren: () => import('./pages/tabs/tabs.module').then( m => m.TabsPageModule)
+    path: 'main-feed',
+    loadChildren: () => import('./pages/main-feed/main-feed.module').then( m => m.MainFeedPageModule)
+  },
+  {
+    path: 'profile',
+    loadChildren: () => import('./pages/profile/profile.module').then( m => m.ProfilePageModule)
   },
 
 
