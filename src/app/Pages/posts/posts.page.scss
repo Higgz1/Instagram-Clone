@@ -2,6 +2,7 @@
   padding: 0;
 }
 .username {
+  font-weight: 550;
   color: black;
   margin-top: 5px;
   margin-left: 5px;
@@ -17,17 +18,6 @@
   margin-bottom: 5px;
   font-weight: 500;
   font-size: 12px;
-}
-
-#stories-image {
-  padding-left: 5px;
-  padding-right: 5px;
-  padding-bottom: 1px;
-  padding-top: 8px;
-}
-#avatar-img {
-  border: 3px solid;
-  border-color: #77acf1;
 }
 
 ion-card {
@@ -51,26 +41,22 @@ ion-card {
   max-height: 100%;
 }
 
-.likes {
-  font-weight: 550;
-  color: black;
-}
-
-// .social-buttons {
-//   font-size: 12px;
-//   color: black;
-// }
-
 .social-icons {
   width: 100%;
   border: 0px;
 }
 
+.icons {
+  padding-right: 20px;
+}
+
 .item-native {
   padding: 0px;
 }
-.icons {
-  padding-right: 20px;
+
+.likes {
+  font-weight: 550;
+  color: black;
 }
 
 #comment-username {

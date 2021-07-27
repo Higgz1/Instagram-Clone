@@ -1,10 +1,10 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Instagram</ion-title>
+    <ion-title (click)="ScrollToTop()">Instagram</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content [scrollEvents]="true" (ionScroll)="fabDisplay($event)">
 
   <ion-refresher slot="fixed" (ionRefresh)="refresh($event)" pullMin="100" pullMax="200">
     <ion-refresher-content 
@@ -24,29 +24,27 @@
   </ion-slides>
 
   <ion-card *ngFor="let item of combined">
-    <ion-item>
+    <ion-item lines="none">
       <ion-avatar item-start (click)="profile(item.user)">
         <img [src]="item.user.picture.thumbnail" />
       </ion-avatar>
-      <ion-text>
+      <ion-text (click)="profile(item.user)">
         <h6 class="username">{{item.user.login.username}}</h6>
         <p class="location">{{item.user.location.country}}</p>
       </ion-text>
       <ion-icon (click)="test()" slot="end" name="ellipsis-vertical-sharp" ></ion-icon>
     </ion-item>
 
-    <img class="image" [src]="item.picture.download_url" />
+    <div  class="portrait">
+      <img class="image" [src]="item.picture.download_url" />
+    </div>
 
-    <ion-row >
       <ion-item lines="none" class="social-icons">
         <ion-icon class="icons" (click)="test1()"  name="heart-outline" ></ion-icon>
         <ion-icon class="icons" (click)="test2()"  name="chatbubble-outline"></ion-icon>
         <ion-icon class="icons" (click)="test3()"  name="paper-plane-outline"></ion-icon>
         <ion-icon (click)="test4()" slot="end" name="bookmark-outline"></ion-icon>
       </ion-item>
-
-    </ion-row>
-
 
     <ion-card-content class="card-content">
       <div class="likes" >12 Likes</div>
@@ -59,11 +57,11 @@
 
   </ion-card>
 
-  <!-- <ion-fab slot="fixed" vertical="bottom" horizontal="end" >
-    <ion-fab-button (click)="ScrollToTop()">
-      <ion-icon name="arrow-up-outline"></ion-icon>
+  <ion-fab (click)="ScrollToTop()" *ngIf="isShown" slot="fixed" vertical="bottom" horizontal="end" >
+    <ion-fab-button >
+      <ion-icon name="chevron-up-outline"></ion-icon>
     </ion-fab-button>
-  </ion-fab> -->
+  </ion-fab>
 
   <ion-infinite-scroll threshold="100px" (ionInfinite)="moreData($event)">
     <ion-infinite-scroll-content
