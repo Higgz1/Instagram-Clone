@@ -17,8 +17,10 @@ export class PostsPage implements OnInit {
 
   constructor(private route: ActivatedRoute,) {
     this.user = JSON.parse(this.route.snapshot.paramMap.get('user')) || 0;
-    this.images = JSON.parse(this.route.snapshot.paramMap.get('images')) || 0;
+    this.nimages = JSON.parse(this.route.snapshot.paramMap.get('images')) || 0;
     this.id = JSON.parse(this.route.snapshot.paramMap.get('selectedId')) || 0;
+    this.scrollToLabel();
+
   }
 
   ngOnInit() {
@@ -29,10 +31,9 @@ export class PostsPage implements OnInit {
   }
 
   scrollToLabel() {
-
     var first = this.id;
-    this.nimages = this.images.sort(function(x,y){ return x == first ? -1 : y == first ? 1 : 0; });
-    console.log('new position',this.nimages);
+    this.images = this.nimages.sort(function (x, y) { return x.id == first ? -1 : y.id == first ? 1 : 0; });
+    // console.log('new position',this.nimages);
   }
 
 
