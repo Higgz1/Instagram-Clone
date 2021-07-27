@@ -1,18 +1,71 @@
-.username {
-  font-weight: 550;
+#avatar {
+  height: 65px;
+  width: 65px;
+}
+#username {
   color: black;
   margin-top: 5px;
   margin-left: 5px;
   margin-bottom: 5px;
-  font-weight: 500;
-  font-size: 15px;
+  font-weight: 550;
+  font-size: 14px;
   line-height: 1;
+  padding-left: 5px;
 }
 
-.location {
+#location {
   margin-top: 5px;
   margin-left: 5px;
   margin-bottom: 5px;
   font-weight: 500;
   font-size: 12px;
+  padding-left: 5px;
+}
+
+#post-count {
+  color: black;
+  margin-top: 5px;
+  margin-left: 5px;
+  margin-bottom: 5px;
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 1;
+  // padding-left: 20px;
+}
+
+#posts-p {
+  margin-left: auto;
+  padding-right: 25px;
+  text-align: center;
+}
+
+#Followers-p {
+  padding-right: 25px;
+  text-align: center;
+}
+
+#Following-p {
+  text-align: center;
+}
+
+#posts {
+  margin-top: 5px;
+  margin-left: 5px;
+  margin-bottom: 5px;
+  font-weight: 500;
+  font-size: 14px;
+  // padding-left: 15px;
+}
+
+.grid {
+  padding: 1px;
+}
+
+.column {
+  padding: 1px;
+}
+
+.image{
+  max-width: 100%;
+    height: auto;
 }

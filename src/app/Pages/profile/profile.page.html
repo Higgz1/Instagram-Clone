@@ -8,51 +8,45 @@
 </ion-header>
 
 <ion-content>
-  <ion-item>
-    <ion-avatar item-start>
+  <ion-item lines="none">
+    <ion-avatar item-start id="avatar">
       <img [src]="user.picture.medium" />
     </ion-avatar>
-    <ion-text>
-      <h6 class="username">16</h6>
-      <p class="location">posts</p>
+
+    <ion-text id="posts-p">
+      <h6 id="post-count">{{posts}}</h6>
+      <p id="posts">posts</p>
     </ion-text>
-    <ion-text>
-      <h6 class="username">578</h6>
-      <p class="location">Followers</p>
+    <ion-text id="Followers-p">
+      <h6 id="post-count">{{followers}}</h6>
+      <p id="posts">Followers</p>
     </ion-text>
-    <ion-text>
-      <h6 class="username">16</h6>
-      <p class="location">Following</p>
+    <ion-text id="Following-p">
+      <h6 id="post-count">{{following}}</h6>
+      <p id="posts">Following</p>
     </ion-text>
   </ion-item>
 
   <ion-text>
-    <h6 class="username">{{user.login.username}}</h6>
-    <p class="location">{{user.location.country}}</p>
+    <h6 id="username">{{user.login.username}}</h6>
+    <p id="location">{{user.location.country}}</p>
   </ion-text>
 
   <ion-segment value="home" (ionChange)="segmentChanged($event)">
     <ion-segment-button value="home">
       <ion-icon name="grid-outline"></ion-icon>
     </ion-segment-button>
-    <ion-segment-button value="scroll">
-      <ion-icon name="layers-outline"></ion-icon>
-    </ion-segment-button>
-    <ion-segment-button value="like">
-      <ion-icon name="heart-outline"></ion-icon>
-    </ion-segment-button>
+
     <ion-segment-button value="tagged">
       <ion-icon name="file-tray-outline"></ion-icon>
     </ion-segment-button>
   </ion-segment>
 
-  <div>
-    <ion-grid>
-      <ion-row>
-        <ion-col size="4" size-md *ngFor="let image of Images">
-          <img class="image" [src]="image.download_url" />
-        </ion-col>
-      </ion-row>
-    </ion-grid>
-  </div>
+  <ion-grid class="grid">
+    <ion-row>
+      <ion-col size="4" size-md *ngFor="let image of Images" class="column">
+        <img class="image" [src]="image.download_url" />
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>
