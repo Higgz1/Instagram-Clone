@@ -118,13 +118,11 @@ export class MainFeedPage implements OnInit {
     } else if (bottomPosition < 2000) {
       this.isShown = false;
     }
-
   }
 
   profile(user) {
     console.log(user)
     this.router.navigate(['/profile', { user: JSON.stringify(user) }]);
-
   }
 
   async storiesImage(item) {

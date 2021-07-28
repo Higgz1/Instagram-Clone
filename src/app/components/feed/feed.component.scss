@@ -4,19 +4,19 @@
 .username {
   color: black;
   margin-top: 5px;
-  margin-left: 5px;
+  margin-left: 8px;
   margin-bottom: 5px;
-  font-weight: 500;
+  font-weight: 550;
   font-size: 15px;
   line-height: 1;
 }
 
 .location {
   margin-top: 5px;
-  margin-left: 5px;
+  margin-left: 8px;
   margin-bottom: 5px;
   font-weight: 500;
-  font-size: 12px;
+  font-size: 13px;
 }
 
 #avatar-img {
@@ -53,6 +53,10 @@ ion-card {
   color: black;
 }
 
+#likes-count{
+  font-weight: 550;
+  color: black;
+}
 
 .social-icons {
   width: 100%;
