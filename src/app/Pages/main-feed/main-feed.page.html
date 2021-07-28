@@ -26,7 +26,7 @@
   <app-feed *ngFor="let feed of combined" [feed]="feed"></app-feed>
 
   <ion-fab (click)="ScrollToTop()" *ngIf="isShown" slot="fixed" vertical="bottom" horizontal="end" >
-    <ion-fab-button >
+    <ion-fab-button size="small">
       <ion-icon name="chevron-up-outline"></ion-icon>
     </ion-fab-button>
   </ion-fab>
