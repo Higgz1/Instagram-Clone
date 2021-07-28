@@ -1,0 +1,55 @@
+<ion-card >
+  <ion-item  *ngIf="feed" lines="none">
+    <ion-avatar item-start (click)="profile(feed.user)">
+      <img [src]="feed.user.picture.thumbnail" />
+    </ion-avatar>
+    <ion-text (click)="profile(feed.user)">
+      <h6 class="username">{{feed.user.login.username}}</h6>
+      <p class="location">{{feed.user.location.country}}</p>
+    </ion-text>
+    <ion-icon (click)="test()" slot="end" name="ellipsis-vertical-sharp" ></ion-icon>
+  </ion-item>
+
+  <ion-item  *ngIf="post" lines="none">
+    <ion-avatar item-start >
+      <img [src]="user.picture.thumbnail" />
+    </ion-avatar>
+    <ion-text >
+      <h6 class="username">{{user.login.username}}</h6>
+      <p class="location">{{user.location.country}}</p>
+    </ion-text>
+    <ion-icon (click)="test()" slot="end" name="ellipsis-vertical-sharp" ></ion-icon>
+  </ion-item>
+
+  <div  *ngIf="feed"  class="portrait">
+    <img class="image" [src]="feed.picture.download_url" />
+  </div>
+
+  <div  *ngIf="post"  class="portrait">
+    <img class="image" [src]="post.download_url" />
+  </div>
+
+    <ion-item lines="none" class="social-icons">
+      <ion-icon class="icons" (click)="test1()"  name="heart-outline" ></ion-icon>
+      <ion-icon class="icons" (click)="test2()"  name="chatbubble-outline"></ion-icon>
+      <ion-icon class="icons" (click)="test3()"  name="paper-plane-outline"></ion-icon>
+      <ion-icon (click)="test4()" slot="end" name="bookmark-outline"></ion-icon>
+    </ion-item>
+
+  <ion-card-content  *ngIf="feed" class="card-content">
+    <div class="likes" >12 Likes</div>
+    <p class="comment">
+      <span id="comment-username">{{feed.user.login.username}}</span> Lorem ipsum dolor sit amet, consectetur adipiscing elit,  labore et dolore magna aliqua.
+    </p>
+
+  </ion-card-content>
+
+  <ion-card-content  *ngIf="post" class="card-content">
+    <div class="likes" >12 Likes</div>
+    <p class="comment">
+      <span id="comment-username">{{user.login.username}}</span> Lorem ipsum dolor sit amet, consectetur adipiscing elit,  labore et dolore magna aliqua.
+    </p>
+
+  </ion-card-content>
+
+</ion-card>

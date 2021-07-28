@@ -15,7 +15,7 @@
     </ion-refresher-content>
   </ion-refresher>
 
-  <ion-slides class="slides" [options]="set">
+  <ion-slides [options]="set">
     <ion-slide *ngFor="let item of combined">
       <ion-avatar id="stories-image" (click)="storiesImage(item)" >
         <img id="avatar-img" [src]="item.user.picture.thumbnail" />
@@ -23,39 +23,7 @@
     </ion-slide> 
   </ion-slides>
 
-  <ion-card *ngFor="let item of combined">
-    <ion-item lines="none">
-      <ion-avatar item-start (click)="profile(item.user)">
-        <img [src]="item.user.picture.thumbnail" />
-      </ion-avatar>
-      <ion-text (click)="profile(item.user)">
-        <h6 class="username">{{item.user.login.username}}</h6>
-        <p class="location">{{item.user.location.country}}</p>
-      </ion-text>
-      <ion-icon (click)="test()" slot="end" name="ellipsis-vertical-sharp" ></ion-icon>
-    </ion-item>
-
-    <div  class="portrait">
-      <img class="image" [src]="item.picture.download_url" />
-    </div>
-
-      <ion-item lines="none" class="social-icons">
-        <ion-icon class="icons" (click)="test1()"  name="heart-outline" ></ion-icon>
-        <ion-icon class="icons" (click)="test2()"  name="chatbubble-outline"></ion-icon>
-        <ion-icon class="icons" (click)="test3()"  name="paper-plane-outline"></ion-icon>
-        <ion-icon (click)="test4()" slot="end" name="bookmark-outline"></ion-icon>
-      </ion-item>
-
-    <ion-card-content class="card-content">
-      <div class="likes" >12 Likes</div>
-      <p class="comment">
-        <span id="comment-username">{{item.user.login.username}}</span> Lorem ipsum dolor sit amet, consectetur adipiscing elit,  labore et dolore magna aliqua.
-      </p>
- 
-    </ion-card-content>
-
-
-  </ion-card>
+  <app-feed *ngFor="let feed of combined" [feed]="feed"></app-feed>
 
   <ion-fab (click)="ScrollToTop()" *ngIf="isShown" slot="fixed" vertical="bottom" horizontal="end" >
     <ion-fab-button >
