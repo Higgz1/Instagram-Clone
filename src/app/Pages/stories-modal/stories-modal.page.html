@@ -1,0 +1,13 @@
+<ion-toolbar class="new-background-color">
+  <ion-buttons slot="end">
+    <ion-button (click)="close()">
+      <ion-icon slot="icon-only" name="close" class="close-icon"></ion-icon>
+    </ion-button>
+  </ion-buttons>
+</ion-toolbar>
+
+<ion-content >
+  <div class="portrait">
+    <img class="image" [src]="item.picture.download_url" />
+  </div>
+</ion-content>
