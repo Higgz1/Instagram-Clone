@@ -37,7 +37,7 @@
     </ion-item>
 
   <ion-card-content  *ngIf="feed" class="card-content">
-    <div class="likes" >12 Likes</div>
+    <div  class="likes" >Likes <span>{{likes}}</span></div>
     <p class="comment">
       <span id="comment-username">{{feed.user.login.username}}</span> Lorem ipsum dolor sit amet, consectetur adipiscing elit,  labore et dolore magna aliqua.
     </p>
@@ -45,7 +45,7 @@
   </ion-card-content>
 
   <ion-card-content  *ngIf="post" class="card-content">
-    <div class="likes" >12 Likes</div>
+    <p class="likes" >Likes <span id="likes-count">{{likes}}</span></p>
     <p class="comment">
       <span id="comment-username">{{user.login.username}}</span> Lorem ipsum dolor sit amet, consectetur adipiscing elit,  labore et dolore magna aliqua.
     </p>
