@@ -113,18 +113,16 @@ export class MainFeedPage implements OnInit {
     const screenSize = event.target.clientHeight;
 
     let bottomPosition = screenSize + event.detail.scrollTop;
-    if (bottomPosition >= 5400) {
+    if (bottomPosition >= 4200) {
       this.isShown = true;
     } else if (bottomPosition < 2000) {
       this.isShown = false;
     }
-
   }
 
   profile(user) {
     console.log(user)
     this.router.navigate(['/profile', { user: JSON.stringify(user) }]);
-
   }
 
   async storiesImage(item) {
