@@ -1,0 +1,74 @@
+.social-cards ion-col {
+  padding: 0;
+}
+.username {
+  color: black;
+  margin-top: 5px;
+  margin-left: 5px;
+  margin-bottom: 5px;
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 1;
+}
+
+.location {
+  margin-top: 5px;
+  margin-left: 5px;
+  margin-bottom: 5px;
+  font-weight: 500;
+  font-size: 12px;
+}
+
+#avatar-img {
+  border: 3px solid;
+  border-color: #77acf1;
+}
+
+ion-card {
+  margin: 10px 0px 10px;
+  border-radius: 0px;
+  box-shadow: rgb(0 0 0 / 0%) 0px 1px 0px -1px, rgb(0 0 0 / 0%) 0px 1px 1px 0px,
+    rgb(0 0 0 / 0%) 0px 1px 0px 0px;
+}
+.card-content {
+  padding: 0px 10px 0px 10px;
+}
+
+.portrait {
+  height: 240px;
+  width: 100%;
+  display: flex; 
+  flex-direction: column;
+  justify-content: center; 
+  align-items: center; 
+}
+
+.image {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.likes {
+  font-weight: 550;
+  color: black;
+}
+
+.social-icons {
+  width: 100%;
+  border: 0px;
+}
+
+.item-native {
+  padding: 0px;
+}
+.icons {
+  padding-right: 20px;
+}
+
+#comment-username {
+  font-weight: 550;
+  color: black;
+}
+.comment {
+  font-size: 400;
+}
