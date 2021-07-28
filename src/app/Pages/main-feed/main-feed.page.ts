@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { IonContent, LoadingController, ModalController } from '@ionic/angular';
 import { ImagesService } from 'src/app/Services/Images/images.service';
 import { UsersService } from 'src/app/Services/Users/users.service';
+import { StoriesModalPage } from '../stories-modal/stories-modal.page';
 
 
 
@@ -108,24 +109,33 @@ export class MainFeedPage implements OnInit {
     this.content.scrollToTop(1500);
   }
 
-  fabDisplay(event){
+  fabDisplay(event) {
     const screenSize = event.target.clientHeight;
- 
+
     let bottomPosition = screenSize + event.detail.scrollTop;
-    if(bottomPosition >= 5400){
+    if (bottomPosition >= 5400) {
       this.isShown = true;
-    }else if(bottomPosition < 2000){
+    } else if (bottomPosition < 2000) {
       this.isShown = false;
     }
 
   }
 
-  profile(user){
+  profile(user) {
     console.log(user)
     this.router.navigate(['/profile', { user: JSON.stringify(user) }]);
 
   }
 
+  async storiesImage(item) {
+    const modal = await this.modalController.create({
+      component: StoriesModalPage,
+      componentProps: {
+        'item': item
+      }
+    })
+    return await modal.present();
+  }
 
 
 }
