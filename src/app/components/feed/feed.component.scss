@@ -37,10 +37,10 @@ ion-card {
 .portrait {
   height: 240px;
   width: 100%;
-  display: flex; 
+  display: flex;
   flex-direction: column;
-  justify-content: center; 
-  align-items: center; 
+  justify-content: center;
+  align-items: center;
 }
 
 .image {
@@ -53,7 +53,7 @@ ion-card {
   color: black;
 }
 
-#likes-count{
+#likes-count {
   font-weight: 550;
   color: black;
 }
@@ -76,4 +76,24 @@ ion-card {
 }
 .comment {
   font-size: 400;
+}
+
+.activated {
+  color: red !important;
+  fill: red;
+}
+
+.notActivated {
+
+  fill: #F9F9F9;
+  // border:1pxblack;
+  // color: #8E8F71 !important;
+}
+
+.double-tap{
+  font-size: 80px;
+  position: absolute;
+  top: 130px;
+  left: 140px;
+  fill: #F9F9F9;
 }

@@ -21,16 +21,20 @@
     <ion-icon (click)="test()" slot="end" name="ellipsis-vertical-sharp" ></ion-icon>
   </ion-item>
 
-  <div  *ngIf="feed"  class="portrait">
-    <img class="image" [src]="feed.picture.download_url" />
+  <div  #Img *ngIf="feed" (tap)="tapEvent()" class="portrait">
+    <img  class="image" [src]="feed.picture.download_url" />
   </div>
 
-  <div  *ngIf="post"  class="portrait">
-    <img class="image" [src]="post.download_url" />
+  <div #Img  *ngIf="post"  class="portrait">
+    <img  class="image" [src]="post.download_url" />
   </div>
+
+  <!-- <div *ngIf="show" >
+    <ion-icon class="double-tap"  name="heart" ></ion-icon>
+  </div> -->
 
     <ion-item lines="none" class="social-icons">
-      <ion-icon class="icons" (click)="test1()"  name="heart-outline" ></ion-icon>
+      <ion-icon class="icons" name="heart-outline" [ngClass]="isLiked ? 'activated ' : 'notActivated '" (click)="toggleActive($event)"></ion-icon>
       <ion-icon class="icons" (click)="test2()"  name="chatbubble-outline"></ion-icon>
       <ion-icon class="icons" (click)="test3()"  name="paper-plane-outline"></ion-icon>
       <ion-icon (click)="test4()" slot="end" name="bookmark-outline"></ion-icon>

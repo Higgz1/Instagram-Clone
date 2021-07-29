@@ -59,17 +59,17 @@ export class MainFeedPage implements OnInit {
     await loading.present();
 
     this.usersService.getUsers(this.page).subscribe((resp: any) => {
-      console.log('Users', resp.results);
+      // console.log('Users', resp.results);
       this.users = resp.results;
 
       this.imagesService.getImages(this.page).subscribe((resp: any) => {
-        console.log('Images', resp);
+        // console.log('Images', resp);
         this.images = resp;
 
         this.combined = this.users.map((user, index) => {
           return { user: user, picture: this.images[index] };
         });
-        console.log(this.combined);
+        // console.log(this.combined);
 
       });
 
@@ -79,7 +79,7 @@ export class MainFeedPage implements OnInit {
 
   moreData(event) {
     this.page++
-    console.log('page increments', this.page)
+    // console.log('page increments', this.page);
 
     this.usersService.getUsers(this.page).subscribe((resp: any) => {
 
@@ -91,7 +91,7 @@ export class MainFeedPage implements OnInit {
         this.newCombined = this.newUsers.map((newUser, index) => {
           return { user: newUser, picture: this.newImages[index] };
         });
-        console.log('new combined', this.newCombined);
+        // console.log('new combined', this.newCombined);
         this.combined.push(...this.newCombined)
 
       });
@@ -121,7 +121,7 @@ export class MainFeedPage implements OnInit {
   }
 
   profile(user) {
-    console.log(user)
+    // console.log(user);
     this.router.navigate(['/profile', { user: JSON.stringify(user) }]);
   }
 
