@@ -6,6 +6,7 @@
 
 <ion-content [scrollEvents]="true" (ionScroll)="fabDisplay($event)">
 
+
   <ion-refresher slot="fixed" (ionRefresh)="refresh($event)" pullMin="100" pullMax="200">
     <ion-refresher-content 
       pullingIcon="arrow-down-outline" 
@@ -14,6 +15,7 @@
       refreshingText="">
     </ion-refresher-content>
   </ion-refresher>
+
 
   <ion-slides [options]="set">
     <ion-slide *ngFor="let item of combined">
@@ -24,6 +26,7 @@
   </ion-slides>
 
   <app-feed *ngFor="let feed of combined" [feed]="feed"></app-feed>
+
 
   <ion-fab (click)="ScrollToTop()" *ngIf="isShown" slot="fixed" vertical="bottom" horizontal="end" >
     <ion-fab-button size="small">
@@ -39,3 +42,5 @@
   </ion-infinite-scroll>
 
 </ion-content>
+<div class="backdrop" [ngClass]="backdropVisible ? 'fade-in' : 'fade'" tappable (click)="closeDrawer()"></div>
+<app-drawer (openStateChanged)="toggleBackdrop($event)"></app-drawer>

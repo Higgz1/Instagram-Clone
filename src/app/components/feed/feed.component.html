@@ -7,7 +7,7 @@
       <h6 class="username">{{feed.user.login.username}}</h6>
       <p class="location">{{feed.user.location.country}}</p>
     </ion-text>
-    <ion-icon (click)="test()" slot="end" name="ellipsis-vertical-sharp" ></ion-icon>
+    <ion-icon (click)="openInfo()" slot="end" name="ellipsis-vertical-sharp" ></ion-icon>
   </ion-item>
 
   <ion-item  *ngIf="post" lines="none">
@@ -18,7 +18,7 @@
       <h6 class="username">{{user.login.username}}</h6>
       <p class="location">{{user.location.country}}</p>
     </ion-text>
-    <ion-icon (click)="test()" slot="end" name="ellipsis-vertical-sharp" ></ion-icon>
+    <ion-icon (click)="postOpenInfo()" slot="end" name="ellipsis-vertical-sharp" ></ion-icon>
   </ion-item>
 
   <div  #Img *ngIf="feed" (tap)="tapEvent()" class="portrait">
