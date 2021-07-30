@@ -18,6 +18,7 @@ export class FeedComponent implements AfterViewInit {
   isLiked = false;
   count: number = 0;
   show = false;
+  toShowIcon = 'heart-outline';
   ;
 
 
@@ -49,6 +50,12 @@ export class FeedComponent implements AfterViewInit {
 
   toggleActive() {
     this.isLiked = !this.isLiked;
+    if (this.isLiked == true) {
+      this.toShowIcon = 'heart';
+
+    } else {
+      this.toShowIcon = 'heart-outline'
+    }
 
   }
 

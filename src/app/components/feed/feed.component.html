@@ -34,7 +34,9 @@
   </div> -->
 
     <ion-item lines="none" class="social-icons">
-      <ion-icon class="icons" name="heart-outline" [ngClass]="isLiked ? 'activated ' : 'notActivated '" (click)="toggleActive($event)"></ion-icon>
+      <!-- <ion-icon class="icons" name="heart-outline" [ngClass]="isLiked ? 'activated ' : 'notActivated '" (click)="toggleActive($event)"></ion-icon> -->
+      <ion-icon class="icons" [name]="toShowIcon" [ngClass]="isLiked ? 'activated ' : 'notActivated '" (click)="toggleActive($event)"></ion-icon>
+
       <ion-icon class="icons" (click)="test2()"  name="chatbubble-outline"></ion-icon>
       <ion-icon class="icons" (click)="test3()"  name="paper-plane-outline"></ion-icon>
       <ion-icon (click)="test4()" slot="end" name="bookmark-outline"></ion-icon>
