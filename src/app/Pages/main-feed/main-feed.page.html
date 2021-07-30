@@ -16,6 +16,10 @@
     </ion-refresher-content>
   </ion-refresher>
 
+  <ion-button (click)="share()">
+    test
+  </ion-button>
+
   <ion-slides [options]="set">
     <ion-slide *ngFor="let item of combined">
       <ion-avatar id="stories-image" (click)="storiesImage(item)" >
@@ -25,6 +29,7 @@
   </ion-slides>
 
   <app-feed *ngFor="let feed of combined" [feed]="feed"></app-feed>
+
 
   <ion-fab (click)="ScrollToTop()" *ngIf="isShown" slot="fixed" vertical="bottom" horizontal="end" >
     <ion-fab-button size="small">
