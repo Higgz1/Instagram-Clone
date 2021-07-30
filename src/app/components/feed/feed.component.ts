@@ -19,6 +19,8 @@ export class FeedComponent implements AfterViewInit {
   count: number = 0;
   show = false;
   toShowIcon = 'heart-outline';
+  bookmarked = false;
+  toShowBookmark = 'bookmark-outline';
   ;
 
 
@@ -46,17 +48,6 @@ export class FeedComponent implements AfterViewInit {
 
   getLikes() {
     return Math.floor((Math.random() * 100) + 1);
-  }
-
-  toggleActive() {
-    this.isLiked = !this.isLiked;
-    if (this.isLiked == true) {
-      this.toShowIcon = 'heart';
-
-    } else {
-      this.toShowIcon = 'heart-outline'
-    }
-
   }
 
   doubleTap() {
@@ -88,5 +79,26 @@ export class FeedComponent implements AfterViewInit {
     setTimeout(() => {
       this.show = true;
     }, 3000);
+  }
+
+  toggleLike() {
+    this.isLiked = !this.isLiked;
+    if (this.isLiked == true) {
+      this.toShowIcon = 'heart';
+
+    } else {
+      this.toShowIcon = 'heart-outline'
+    }
+
+  }
+
+  toggleBookmark() {
+    this.bookmarked = !this.bookmarked;
+    if (this.bookmarked == true) {
+      this.toShowBookmark = 'bookmark';
+
+    } else {
+      this.toShowBookmark = 'bookmark-outline'
+    }
   }
 }
