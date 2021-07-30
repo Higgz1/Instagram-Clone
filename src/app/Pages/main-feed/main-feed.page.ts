@@ -6,7 +6,6 @@ import { DrawerService } from 'src/app/Services/Drawer/drawer.service';
 import { ImagesService } from 'src/app/Services/Images/images.service';
 import { UsersService } from 'src/app/Services/Users/users.service';
 import { StoriesModalPage } from '../stories-modal/stories-modal.page';
-import { SocialSharing } from '@ionic-native/social-sharing/ngx';
 
 
 
@@ -43,7 +42,7 @@ export class MainFeedPage implements OnInit {
     private drawerService: DrawerService,
     private imagesService: ImagesService,
     public loadingController: LoadingController,
-    private socialSharing: SocialSharing,
+
     public modalController: ModalController,
     private changeDetectorRef: ChangeDetectorRef
   ) {
@@ -54,33 +53,11 @@ export class MainFeedPage implements OnInit {
     })
   }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   ionViewDidEnter() {
     this.loadData();
   }
-
-  ShareWhatsapp(){
-    // this.socialSharing.shareViaWhatsApp(this.text, this.imgurl, this.link);
-  }
-
-  ShareFacebook(){
-    // this.socialSharing.shareViaFacebookWithPasteMessageHint(this.text, this.imgurl, null /* url */, 'Copia Pega!');
-  }
-
-  SendEmail(){
-    this.socialSharing.shareViaEmail('text', 'subject', ['email@address.com']);
-  }
-
-  SendTwitter(){
-    // this.socialSharing.shareViaTwitter(this.text, this.imgurl, this.link);
-  }
-
-  SendInstagram(){
-    // this.socialSharing.shareViaInstagram(this.text, this.imgurl);
-  }
-
   async loadData() {
     this.page = Math.floor((Math.random() * 100) + 1);
     if (this.page >= 90) {
