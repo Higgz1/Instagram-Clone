@@ -6,6 +6,7 @@
 
 <ion-content [scrollEvents]="true" (ionScroll)="fabDisplay($event)">
 
+
   <ion-refresher slot="fixed" (ionRefresh)="refresh($event)" pullMin="100" pullMax="200">
     <ion-refresher-content 
       pullingIcon="arrow-down-outline" 
@@ -39,3 +40,5 @@
   </ion-infinite-scroll>
 
 </ion-content>
+<div class="backdrop" [ngClass]="backdropVisible ? 'fade-in' : 'fade'" tappable (click)="closeDrawer()"></div>
+<app-drawer (openStateChanged)="toggleBackdrop($event)"></app-drawer>

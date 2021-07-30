@@ -1,6 +1,7 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { IonContent, LoadingController, ModalController } from '@ionic/angular';
+import { DrawerComponent } from 'src/app/components/drawer/drawer.component';
 import { DrawerService } from 'src/app/Services/Drawer/drawer.service';
 import { ImagesService } from 'src/app/Services/Images/images.service';
 import { UsersService } from 'src/app/Services/Users/users.service';
@@ -30,16 +31,25 @@ export class MainFeedPage implements OnInit {
   public isShown = false;
 
   @ViewChild(IonContent, { static: false }) content: IonContent;
+  @ViewChild(DrawerComponent) drawer: DrawerComponent;
+  backdropVisible = false;
 
 
   constructor(
     private router: Router,
     private usersService: UsersService,
-    private drawerService:DrawerService,
+    private drawerService: DrawerService,
     private imagesService: ImagesService,
     public loadingController: LoadingController,
-    public modalController: ModalController
-  ) { }
+    public modalController: ModalController,
+    private changeDetectorRef: ChangeDetectorRef
+  ) {
+    this.drawerService.drawerOpen.subscribe(drawerData => {
+      if (drawerData && drawerData.open) {
+        this.drawer.openDrawer();
+      }
+    })
+  }
 
   ngOnInit() {
   }
@@ -136,9 +146,14 @@ export class MainFeedPage implements OnInit {
     })
     return await modal.present();
   }
-  
-  openInfo() {
-    this.drawerService.openDrawer();
+
+  toggleBackdrop(isVisible) {
+    this.backdropVisible = isVisible;
+    this.changeDetectorRef.detectChanges();
+  }
+
+  closeDrawer() {
+    this.drawer.closeDrawer();
   }
 
 
