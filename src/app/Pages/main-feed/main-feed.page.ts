@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { IonContent, LoadingController, ModalController } from '@ionic/angular';
+import { DrawerService } from 'src/app/Services/Drawer/drawer.service';
 import { ImagesService } from 'src/app/Services/Images/images.service';
 import { UsersService } from 'src/app/Services/Users/users.service';
 import { StoriesModalPage } from '../stories-modal/stories-modal.page';
@@ -34,6 +35,7 @@ export class MainFeedPage implements OnInit {
   constructor(
     private router: Router,
     private usersService: UsersService,
+    private drawerService:DrawerService,
     private imagesService: ImagesService,
     public loadingController: LoadingController,
     public modalController: ModalController
@@ -133,6 +135,12 @@ export class MainFeedPage implements OnInit {
       }
     })
     return await modal.present();
+  }
+
+  2
+3
+  openInfo() {
+    this.drawerService.openDrawer();
   }
 
 
