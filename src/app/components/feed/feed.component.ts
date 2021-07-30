@@ -1,7 +1,9 @@
 import { AfterViewInit, Component, ElementRef, Input, OnInit, QueryList, ViewChild, ViewChildren } from '@angular/core';
 import { Router } from '@angular/router';
-import { GestureController } from '@ionic/angular';
+import { GestureController, ModalController } from '@ionic/angular';
+import { CommentsModalPage } from 'src/app/Pages/comments-modal/comments-modal.page';
 import { DrawerService } from 'src/app/Services/Drawer/drawer.service';
+// import { DrawerService } from 'src/app/Services/Drawer/drawer.service';
 
 @Component({
   selector: 'app-feed',
@@ -30,6 +32,7 @@ export class FeedComponent implements AfterViewInit {
 
   constructor(private router: Router, 
     private drawerService: DrawerService,
+    public modalController: ModalController,
     private gestureCtrl: GestureController) { }
 
   ngAfterViewInit(): void {
@@ -43,16 +46,27 @@ export class FeedComponent implements AfterViewInit {
     this.likes = this.getLikes();
 
   }
-
+ 
   profile(user) {
     console.log(user)
     this.router.navigate(['/profile', { user: JSON.stringify(user) }]);
   }
 
+  async comments(user){
+    const modal = await this.modalController.create({
+      component: CommentsModalPage,
+      componentProps: {
+        'user': user
+      }
+    })
+    return await modal.present();
+
+  }
+
   openInfo() {
     this.drawerService.openDrawer();
   }
-
+ 
   postOpenInfo(){
     this.drawerService.postOpenDrawer();
 
