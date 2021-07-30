@@ -47,7 +47,9 @@ export class MainFeedPage implements OnInit {
     private changeDetectorRef: ChangeDetectorRef
   ) {
     this.drawerService.drawerOpen.subscribe(drawerData => {
-      if (drawerData && drawerData.open) {
+      console.log(drawerData);
+
+      if (drawerData && drawerData.open ) {
         this.drawer.openDrawer();
       }
     })

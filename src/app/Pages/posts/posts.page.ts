@@ -23,17 +23,18 @@ export class PostsPage implements OnInit {
     private changeDetectorRef: ChangeDetectorRef,
     private drawerService: DrawerService,
 
-    ) {
+  ) {
+    this.drawerService.postDrawerOpen.subscribe(drawerData => {
+      if (drawerData && drawerData.open) {
+        this.drawer.openDrawer();
+      }
+      console.log(drawerData)
+    })
     this.user = JSON.parse(this.route.snapshot.paramMap.get('user')) || 0;
     this.nimages = JSON.parse(this.route.snapshot.paramMap.get('images')) || 0;
     this.id = JSON.parse(this.route.snapshot.paramMap.get('selectedId')) || 0;
     this.topImage();
 
-    this.drawerService.drawerOpen.subscribe(drawerData => {
-      if (drawerData && drawerData.open) {
-        this.drawer.openDrawer();
-      }
-    })
 
   }
 
@@ -57,6 +58,8 @@ export class PostsPage implements OnInit {
 
   closeDrawer() {
     this.drawer.closeDrawer();
+    this.drawerService.closeDrawer();
+
   }
 
 

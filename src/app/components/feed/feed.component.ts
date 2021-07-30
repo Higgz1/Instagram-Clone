@@ -53,6 +53,11 @@ export class FeedComponent implements AfterViewInit {
     this.drawerService.openDrawer();
   }
 
+  postOpenInfo(){
+    this.drawerService.postOpenDrawer();
+
+  }
+
   getLikes() {
     return Math.floor((Math.random() * 100) + 1);
   }
