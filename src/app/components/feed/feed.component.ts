@@ -48,7 +48,7 @@ export class FeedComponent implements AfterViewInit {
   }
  
   profile(user) {
-    console.log(user)
+    // console.log(user)
     this.router.navigate(['/profile', { user: JSON.stringify(user) }]);
   }
 
