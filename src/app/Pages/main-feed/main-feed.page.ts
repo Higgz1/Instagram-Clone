@@ -136,9 +136,7 @@ export class MainFeedPage implements OnInit {
     })
     return await modal.present();
   }
-
-  2
-3
+  
   openInfo() {
     this.drawerService.openDrawer();
   }
