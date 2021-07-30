@@ -1,0 +1,30 @@
+<div class="drawer ion-padding" #drawer>
+ 
+  <ion-row class="ion-align-items-center">
+    <ion-col size="12">
+      <h2>Share to:</h2>
+    </ion-col>
+
+ 
+
+    <ion-col size="2">
+        <ion-button color="warning" (click)="SendEmail()"><ion-icon name="mail-outline"></ion-icon></ion-button>
+    </ion-col>
+    <ion-col size="2">
+      <ion-button color="primary" (click)="ShareFacebook()" ><ion-icon name="logo-facebook"></ion-icon></ion-button>
+    </ion-col>
+    <ion-col size="2">
+        <ion-button color="success" (click)="ShareWhatsapp()"><ion-icon name="logo-whatsapp"></ion-icon></ion-button>
+    </ion-col>
+    <ion-col size="2">
+      <ion-button  color="secondary" (click)="SendTwitter()"><ion-icon name="logo-twitter"></ion-icon></ion-button>
+    </ion-col>   
+    <ion-col size="2">
+      <ion-button color="tertiary" (click)="SendInstagram()"><ion-icon name="logo-instagram"></ion-icon></ion-button>
+    </ion-col>   
+    <ion-col size="2">
+      <ion-button color="tertiary" (click)="SendTikTok()"><ion-icon name="logo-tiktok"></ion-icon></ion-button>
+    </ion-col> 
+ 
+  </ion-row>
+</div>

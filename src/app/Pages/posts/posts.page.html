@@ -12,3 +12,5 @@
   <app-feed *ngFor="let post of images" [user]="user" [post]="post"></app-feed>
 
 </ion-content>
+<div class="backdrop" [ngClass]="backdropVisible ? 'fade-in' : 'fade'" tappable (click)="closeDrawer()"></div>
+<app-drawer (openStateChanged)="toggleBackdrop($event)"></app-drawer>

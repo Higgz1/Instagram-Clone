@@ -1,6 +1,7 @@
 import { AfterViewInit, Component, ElementRef, Input, OnInit, QueryList, ViewChild, ViewChildren } from '@angular/core';
 import { Router } from '@angular/router';
 import { GestureController } from '@ionic/angular';
+import { DrawerService } from 'src/app/Services/Drawer/drawer.service';
 
 @Component({
   selector: 'app-feed',
@@ -27,7 +28,9 @@ export class FeedComponent implements AfterViewInit {
 
 
 
-  constructor(private router: Router, private gestureCtrl: GestureController) { }
+  constructor(private router: Router, 
+    private drawerService: DrawerService,
+    private gestureCtrl: GestureController) { }
 
   ngAfterViewInit(): void {
     // const imageArray = this.Images.toArray();
@@ -44,6 +47,15 @@ export class FeedComponent implements AfterViewInit {
   profile(user) {
     console.log(user)
     this.router.navigate(['/profile', { user: JSON.stringify(user) }]);
+  }
+
+  openInfo() {
+    this.drawerService.openDrawer();
+  }
+
+  postOpenInfo(){
+    this.drawerService.postOpenDrawer();
+
   }
 
   getLikes() {
