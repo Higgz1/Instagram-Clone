@@ -2,6 +2,7 @@ import { AfterViewInit, Component, ElementRef, Input, OnInit, QueryList, ViewChi
 import { Router } from '@angular/router';
 import { GestureController, ModalController } from '@ionic/angular';
 import { CommentsModalPage } from 'src/app/Pages/comments-modal/comments-modal.page';
+import { MessagesModalPage } from 'src/app/pages/messages-modal/messages-modal.page';
 import { DrawerService } from 'src/app/Services/Drawer/drawer.service';
 // import { DrawerService } from 'src/app/Services/Drawer/drawer.service';
 
@@ -123,5 +124,14 @@ export class FeedComponent implements AfterViewInit {
     } else {
       this.toShowBookmark = 'bookmark-outline'
     }
+  }
+
+  async message(){
+    const modal = await this.modalController.create({
+      component: MessagesModalPage,
+      componentProps: {
+      }
+    })
+    return await modal.present();
   }
 }
