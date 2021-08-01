@@ -2,7 +2,6 @@ import { AfterViewInit, Component, ElementRef, Input, OnInit, QueryList, ViewChi
 import { Router } from '@angular/router';
 import { GestureController, ModalController } from '@ionic/angular';
 import { CommentsModalPage } from 'src/app/Pages/comments-modal/comments-modal.page';
-import { MessagesModalPage } from 'src/app/pages/messages-modal/messages-modal.page';
 import { DrawerService } from 'src/app/Services/Drawer/drawer.service';
 // import { DrawerService } from 'src/app/Services/Drawer/drawer.service';
 
@@ -31,7 +30,7 @@ export class FeedComponent implements AfterViewInit {
 
 
 
-  constructor(private router: Router, 
+  constructor(private router: Router,
     private drawerService: DrawerService,
     public modalController: ModalController,
     private gestureCtrl: GestureController) { }
@@ -43,13 +42,13 @@ export class FeedComponent implements AfterViewInit {
     this.likes = this.getLikes();
 
   }
- 
+
   profile(user) {
     // console.log(user)
     this.router.navigate(['/profile', { user: JSON.stringify(user) }]);
   }
 
-  async comments(user){
+  async comments(user) {
     const modal = await this.modalController.create({
       component: CommentsModalPage,
       componentProps: {
@@ -64,8 +63,8 @@ export class FeedComponent implements AfterViewInit {
     console.log(feed.picture);
     this.drawerService.openDrawer(feed);
   }
- 
-  postOpenInfo(post){
+
+  postOpenInfo(post) {
     this.drawerService.postOpenDrawer(post);
 
   }
@@ -126,12 +125,16 @@ export class FeedComponent implements AfterViewInit {
     }
   }
 
-  async message(){
-    const modal = await this.modalController.create({
-      component: MessagesModalPage,
-      componentProps: {
-      }
-    })
-    return await modal.present();
+  async message() {
+    this.router.navigate(['/messages']);
   }
+
+  // async message() {
+  //   const modal = await this.modalController.create({
+  //     component: MessagesModalPage,
+  //     componentProps: {
+  //     }
+  //   })
+  //   return await modal.present();
+  // }
 }

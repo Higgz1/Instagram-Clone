@@ -3,14 +3,14 @@ import { LoadingController, ModalController } from '@ionic/angular';
 import { UsersService } from 'src/app/Services/Users/users.service';
 
 @Component({
-  selector: 'app-messages-modal',
-  templateUrl: './messages-modal.page.html',
-  styleUrls: ['./messages-modal.page.scss'],
+  selector: 'app-messages',
+  templateUrl: './messages.page.html',
+  styleUrls: ['./messages.page.scss'],
 })
-export class MessagesModalPage implements OnInit {
+export class MessagesPage implements OnInit {
   page: number;
   users: any;
-
+  
   constructor(public modalController: ModalController,
     private usersService: UsersService,
     public loadingController: LoadingController,
@@ -18,10 +18,6 @@ export class MessagesModalPage implements OnInit {
 
   ngOnInit() {
     this.getUsers();
-  }
-
-  close() {
-    this.modalController.dismiss();
   }
 
   async getUsers(){
@@ -42,4 +38,5 @@ export class MessagesModalPage implements OnInit {
       loading.dismiss();
     });
   }
+
 }

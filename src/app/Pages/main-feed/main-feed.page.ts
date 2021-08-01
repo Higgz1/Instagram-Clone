@@ -128,7 +128,7 @@ export class MainFeedPage implements OnInit {
     const screenSize = event.target.clientHeight;
 
     let bottomPosition = screenSize + event.detail.scrollTop;
-    if (bottomPosition >= 1000) {
+    if (bottomPosition >= 900) {
       this.isShown = true;
     } else if (bottomPosition < 800) {
       this.isShown = false;
