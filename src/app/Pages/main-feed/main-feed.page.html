@@ -28,8 +28,8 @@
   <app-feed *ngFor="let feed of combined" [feed]="feed"></app-feed>
 
 
-  <ion-fab (click)="ScrollToTop()" *ngIf="isShown" slot="fixed" vertical="bottom" horizontal="end" >
-    <ion-fab-button size="small">
+  <ion-fab *ngIf="isShown" slot="fixed" vertical="bottom" horizontal="end" >
+    <ion-fab-button (click)="ScrollToTop()" size="small">
       <ion-icon name="chevron-up-outline"></ion-icon>
     </ion-fab-button>
   </ion-fab>
@@ -37,7 +37,7 @@
   <ion-infinite-scroll threshold="100px" (ionInfinite)="moreData($event)">
     <ion-infinite-scroll-content
       loadingSpinner="bubbles"
-      loadingText="Loading more data...">
+      >
     </ion-infinite-scroll-content>
   </ion-infinite-scroll>
 

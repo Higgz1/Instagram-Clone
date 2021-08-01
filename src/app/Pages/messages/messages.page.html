@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Messages</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div *ngFor="let user of users">
+    <ion-item lines="none">
+      <ion-avatar (click)="profile(user)" item-start>
+        <img [src]="user.picture.thumbnail" />
+      </ion-avatar>
+      <ion-text (click)="profile(user)">
+        <h6 class="username">{{user.name.first}} {{user.name.last}}</h6>
+        <p class="location">{{user.login.username}}</p>
+      </ion-text>
+      <!-- <ion-icon (click)="toggleSend(user)" slot="end"  [name]="showSent"></ion-icon> -->
+      <ion-checkbox (ionChange)="onChange(user,$event)" slot="end" color="primary" [(ngModel)]="user.isChecked"></ion-checkbox>
+      <!-- <ion-icon slot="end" [name]="toShowIcon" [ngClass]="isLiked ? 'activated ' : 'notActivated '" (click)="toggleLike()"></ion-icon> -->
+
+   
+    </ion-item>
+
+
+  </div>
+  <div *ngIf="usersToSend.length > 0">
+    <ion-button  type="submit" expand="block">Send </ion-button>
+  </div>
+  <!-- [disabled]="!user.isChecked" -->
+
+</ion-content>
