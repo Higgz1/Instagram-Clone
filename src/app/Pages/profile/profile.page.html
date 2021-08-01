@@ -32,7 +32,7 @@
     <p id="location">{{user.location.country}}</p>
   </ion-text>
 
-  <ion-segment value="home" (ionChange)="segmentChanged($event)">
+  <ion-segment scrollable  [(ngModel)]="segmentModel" (ionChange)="segmentChanged($event)">
     <ion-segment-button value="home">
       <ion-icon name="grid-outline"></ion-icon>
     </ion-segment-button>
@@ -42,11 +42,21 @@
     </ion-segment-button>
   </ion-segment>
 
-  <ion-grid class="grid">
-    <ion-row>
-      <ion-col (click)="viewPost(image.id)" size="4" size-md *ngFor="let image of Images" class="column">
-        <img class="image" [src]="image.download_url" />
-      </ion-col>
-    </ion-row>
+  <ion-grid class="grid" >
+    <div *ngIf="segmentModel === 'home'">
+      <ion-row >
+        <ion-col (click)="viewPost(image.id)" size="4" size-md *ngFor="let image of Images" class="column">
+          <img class="image" [src]="image.download_url" />
+        </ion-col>
+      </ion-row>
+    </div>
+
+    <div *ngIf="segmentModel === 'tagged'">
+      <ion-row>
+        <!-- <ion-col (click)="viewPost(image.id)" size="4" size-md *ngFor="let image of Images" class="column">
+          <img class="image" [src]="image.download_url" />
+        </ion-col> -->
+      </ion-row>
+    </div>
   </ion-grid>
 </ion-content>

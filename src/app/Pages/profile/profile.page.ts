@@ -14,6 +14,7 @@ export class ProfilePage implements OnInit {
   followers: number;
   following: number;
   posts: number;
+  segmentModel = "home";
   
 
   constructor(private route: ActivatedRoute,
@@ -25,7 +26,7 @@ export class ProfilePage implements OnInit {
 
   ngOnInit() {
   }
-
+ 
   ionViewDidEnter() {
     this.getImages();
   }
@@ -60,6 +61,10 @@ export class ProfilePage implements OnInit {
   
     this.router.navigate(['/posts', ({ user: JSON.stringify(this.user),images:JSON.stringify(this.Images),selectedId:JSON.stringify(id)})]);
 
+  }
+
+  segmentChanged(ev: any) {
+    // console.log('Segment changed', ev);
   }
 
 }

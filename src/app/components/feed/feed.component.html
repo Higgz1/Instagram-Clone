@@ -7,7 +7,7 @@
       <h6 class="username">{{feed.user.login.username}}</h6>
       <p class="location">{{feed.user.location.country}}</p>
     </ion-text>
-    <ion-icon (click)="openInfo()" slot="end" name="ellipsis-vertical-sharp" ></ion-icon>
+    <ion-icon (click)="openInfo(feed)" slot="end" name="ellipsis-vertical-sharp" ></ion-icon>
   </ion-item>
 
   <ion-item  *ngIf="post" lines="none">
@@ -18,7 +18,7 @@
       <h6 class="username">{{user.login.username}}</h6>
       <p class="location">{{user.location.country}}</p>
     </ion-text>
-    <ion-icon (click)="postOpenInfo()" slot="end" name="ellipsis-vertical-sharp" ></ion-icon>
+    <ion-icon (click)="postOpenInfo(post)" slot="end" name="ellipsis-vertical-sharp" ></ion-icon>
   </ion-item>
 
   <div  #Img *ngIf="feed" (tap)="tapEvent()" class="portrait">
@@ -33,9 +33,17 @@
     <ion-icon class="double-tap"  name="heart" ></ion-icon>
   </div> -->
 
-    <ion-item lines="none" class="social-icons">
+    <ion-item  *ngIf="post" lines="none" class="social-icons">
       <ion-icon class="icons" [name]="toShowIcon" [ngClass]="isLiked ? 'activated ' : 'notActivated '" (click)="toggleLike()"></ion-icon>
-      <ion-icon class="icons" (click)="test2()"  name="chatbubble-outline"></ion-icon>
+      <ion-icon class="icons" (click)="comments(user)"  name="chatbubble-outline"></ion-icon>
+      <ion-icon class="icons" (click)="test3()"  name="paper-plane-outline"></ion-icon>
+      <ion-icon (click)="toggleBookmark()" [name]="toShowBookmark" slot="end" ></ion-icon>
+
+    </ion-item>
+
+    <ion-item  *ngIf="feed" lines="none" class="social-icons">
+      <ion-icon class="icons" [name]="toShowIcon" [ngClass]="isLiked ? 'activated ' : 'notActivated '" (click)="toggleLike()"></ion-icon>
+      <ion-icon class="icons" (click)="comments(feed.user)"  name="chatbubble-outline"></ion-icon>
       <ion-icon class="icons" (click)="test3()"  name="paper-plane-outline"></ion-icon>
       <ion-icon (click)="toggleBookmark()" [name]="toShowBookmark" slot="end" ></ion-icon>
 
