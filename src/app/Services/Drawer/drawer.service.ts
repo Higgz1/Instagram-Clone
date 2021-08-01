@@ -7,19 +7,18 @@ import { BehaviorSubject } from 'rxjs';
 export class DrawerService {
 
   drawerOpen = new BehaviorSubject(null);
-  drawerClose = new BehaviorSubject(!null);
-
   postDrawerOpen = new BehaviorSubject(null);
+
   constructor() { }
 
-  openDrawer() {
+  openDrawer(feed) {
 
-    this.drawerOpen.next({ open: true });
+    this.drawerOpen.next({ open: true ,feed});
 
   }
 
-  postOpenDrawer() {
-    this.postDrawerOpen.next({ open: true });
+  postOpenDrawer(feed) {
+    this.postDrawerOpen.next({ open: true,feed });
 
   }
   closeDrawer() {

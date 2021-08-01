@@ -51,7 +51,7 @@ export class MainFeedPage implements OnInit {
       console.log(drawerData);
 
       if (drawerData && drawerData.open ) {
-        this.drawer.openDrawer();
+        this.drawer.openDrawer(drawerData.feed);
       }
     })
   }

@@ -36,10 +36,6 @@ export class FeedComponent implements AfterViewInit {
     private gestureCtrl: GestureController) { }
 
   ngAfterViewInit(): void {
-    // const imageArray = this.Images.toArray();
-    // console.log(imageArray)
-
-    // this.doubleTap();
   }
 
   ngOnInit() {
@@ -63,12 +59,13 @@ export class FeedComponent implements AfterViewInit {
 
   }
 
-  openInfo() {
-    this.drawerService.openDrawer();
+  openInfo(feed) {
+    console.log(feed.picture);
+    this.drawerService.openDrawer(feed);
   }
  
-  postOpenInfo(){
-    this.drawerService.postOpenDrawer();
+  postOpenInfo(post){
+    this.drawerService.postOpenDrawer(post);
 
   }
 
