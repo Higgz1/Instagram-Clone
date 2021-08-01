@@ -53,9 +53,12 @@
 
     <div *ngIf="segmentModel === 'tagged'">
       <ion-row>
-        <!-- <ion-col (click)="viewPost(image.id)" size="4" size-md *ngFor="let image of Images" class="column">
-          <img class="image" [src]="image.download_url" />
-        </ion-col> -->
+        <div class="container">
+          <img class="noItems-Image" src="assets/flame-1266.png" />
+        </div>
+        <div class="container-text">
+          <p>No Tagged Pictures Found</p>
+        </div>
       </ion-row>
     </div>
   </ion-grid>
