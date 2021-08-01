@@ -18,10 +18,10 @@ const routes: Routes = [
   {
     path: 'posts',
     loadChildren: () => import('./Pages/posts/posts.module').then( m => m.PostsPageModule)
+  },  {
+    path: 'messages',
+    loadChildren: () => import('./pages/messages/messages.module').then( m => m.MessagesPageModule)
   },
-
-
-
 
 ];
 

@@ -36,7 +36,7 @@
     <ion-item  *ngIf="post" lines="none" class="social-icons">
       <ion-icon class="icons" [name]="toShowIcon" [ngClass]="isLiked ? 'activated ' : 'notActivated '" (click)="toggleLike()"></ion-icon>
       <ion-icon class="icons" (click)="comments(user)"  name="chatbubble-outline"></ion-icon>
-      <ion-icon class="icons" (click)="test3()"  name="paper-plane-outline"></ion-icon>
+      <ion-icon class="icons" (click)="message()"  name="paper-plane-outline"></ion-icon>
       <ion-icon (click)="toggleBookmark()" [name]="toShowBookmark" slot="end" ></ion-icon>
 
     </ion-item>
@@ -44,7 +44,7 @@
     <ion-item  *ngIf="feed" lines="none" class="social-icons">
       <ion-icon class="icons" [name]="toShowIcon" [ngClass]="isLiked ? 'activated ' : 'notActivated '" (click)="toggleLike()"></ion-icon>
       <ion-icon class="icons" (click)="comments(feed.user)"  name="chatbubble-outline"></ion-icon>
-      <ion-icon class="icons" (click)="test3()"  name="paper-plane-outline"></ion-icon>
+      <ion-icon class="icons" (click)="message()"  name="paper-plane-outline"></ion-icon>
       <ion-icon (click)="toggleBookmark()" [name]="toShowBookmark" slot="end" ></ion-icon>
 
     </ion-item>

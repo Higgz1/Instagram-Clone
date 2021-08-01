@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { LoadingController } from '@ionic/angular';
 import { ImagesService } from 'src/app/Services/Images/images.service';
 
 @Component({
@@ -20,6 +21,8 @@ export class ProfilePage implements OnInit {
   constructor(private route: ActivatedRoute,
     private imagesService: ImagesService,
     private router: Router,
+    public loadingController: LoadingController,
+
     ) {
     this.user = JSON.parse(this.route.snapshot.paramMap.get('user')) || 0;
   }
@@ -31,7 +34,14 @@ export class ProfilePage implements OnInit {
     this.getImages();
   }
 
-  getImages() {
+  async getImages() {
+
+    const loading = await this.loadingController.create({
+      cssClass: 'my-custom-class',
+      message: 'Please wait...',
+    });
+    await loading.present(); 
+    
     this.page = Math.floor((Math.random() * 100) + 1);
     if (this.page >= 90) {
       this.page = this.page - 40;
@@ -45,8 +55,9 @@ export class ProfilePage implements OnInit {
       this.followers = this.getFollowers();
       this.following = this.getFollowing();
       console.log(this.Images);
+      loading.dismiss();
 
-    })
+    });
   }
 
   getFollowers() {
