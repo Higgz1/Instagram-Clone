@@ -53,11 +53,15 @@ export class DrawerComponent {
     }).catch(e => { });
   }
 
-  // SendInstagram() {
-  //   this.socialSharing.shareViaInstagram(this.text, this.feed.picture.download_url).then(() => {
+  SendInstagram() {
+    this.socialSharing.shareViaInstagram(this.text, this.feed.picture.download_url).then(() => {
 
-  //   }).catch(e => { });
-  // }
+    }).catch(e => { });
+  }
+
+  SendTikTok(){
+    
+  }
 
 
 }
