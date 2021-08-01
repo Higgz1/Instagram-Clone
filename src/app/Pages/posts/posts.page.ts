@@ -24,12 +24,16 @@ export class PostsPage implements OnInit {
     private drawerService: DrawerService,
 
   ) {
+
     this.drawerService.postDrawerOpen.subscribe(drawerData => {
+      console.log('drawerData post page',drawerData);
+
       if (drawerData && drawerData.open) {
-        this.drawer.openDrawer();
+        // this.drawerService.closeDrawer();
+        this.drawer.openDrawer(drawerData.feed);
       }
-      console.log(drawerData)
-    })
+      
+    });
     this.user = JSON.parse(this.route.snapshot.paramMap.get('user')) || 0;
     this.nimages = JSON.parse(this.route.snapshot.paramMap.get('images')) || 0;
     this.id = JSON.parse(this.route.snapshot.paramMap.get('selectedId')) || 0;
@@ -40,9 +44,16 @@ export class PostsPage implements OnInit {
 
   ngOnInit() {
     console.log(this.id);
+    this.drawerService.closeDrawer();
+    
+
   }
   ionViewDidEnter() {
     // this.scrollToLabel();
+  }
+
+  ngOnDestroy(){
+    this.drawerService.closeDrawer();
   }
 
   topImage() {
@@ -58,7 +69,7 @@ export class PostsPage implements OnInit {
 
   closeDrawer() {
     this.drawer.closeDrawer();
-    this.drawerService.closeDrawer();
+    // this.drawerService.closeDrawer();
 
   }
 

@@ -1,7 +1,9 @@
 import { AfterViewInit, Component, ElementRef, Input, OnInit, QueryList, ViewChild, ViewChildren } from '@angular/core';
 import { Router } from '@angular/router';
-import { GestureController } from '@ionic/angular';
+import { GestureController, ModalController } from '@ionic/angular';
+import { CommentsModalPage } from 'src/app/Pages/comments-modal/comments-modal.page';
 import { DrawerService } from 'src/app/Services/Drawer/drawer.service';
+// import { DrawerService } from 'src/app/Services/Drawer/drawer.service';
 
 @Component({
   selector: 'app-feed',
@@ -30,31 +32,40 @@ export class FeedComponent implements AfterViewInit {
 
   constructor(private router: Router, 
     private drawerService: DrawerService,
+    public modalController: ModalController,
     private gestureCtrl: GestureController) { }
 
   ngAfterViewInit(): void {
-    // const imageArray = this.Images.toArray();
-    // console.log(imageArray)
-
-    // this.doubleTap();
   }
 
   ngOnInit() {
     this.likes = this.getLikes();
 
   }
-
+ 
   profile(user) {
-    console.log(user)
+    // console.log(user)
     this.router.navigate(['/profile', { user: JSON.stringify(user) }]);
   }
 
-  openInfo() {
-    this.drawerService.openDrawer();
+  async comments(user){
+    const modal = await this.modalController.create({
+      component: CommentsModalPage,
+      componentProps: {
+        'user': user
+      }
+    })
+    return await modal.present();
+
   }
 
-  postOpenInfo(){
-    this.drawerService.postOpenDrawer();
+  openInfo(feed) {
+    console.log(feed.picture);
+    this.drawerService.openDrawer(feed);
+  }
+ 
+  postOpenInfo(post){
+    this.drawerService.postOpenDrawer(post);
 
   }
 

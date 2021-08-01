@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { IonContent, LoadingController, ModalController } from '@ionic/angular';
 import { DrawerComponent } from 'src/app/components/drawer/drawer.component';
 import { DrawerService } from 'src/app/Services/Drawer/drawer.service';
+
 import { ImagesService } from 'src/app/Services/Images/images.service';
 import { UsersService } from 'src/app/Services/Users/users.service';
 import { StoriesModalPage } from '../stories-modal/stories-modal.page';
@@ -50,7 +51,7 @@ export class MainFeedPage implements OnInit {
       console.log(drawerData);
 
       if (drawerData && drawerData.open ) {
-        this.drawer.openDrawer();
+        this.drawer.openDrawer(drawerData.feed);
       }
     })
   }
