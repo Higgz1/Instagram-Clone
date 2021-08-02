@@ -32,3 +32,22 @@ ion-segment {
   transition: 0.4s linear all;
   opacity: 1;
 }
+
+.parent-grid{
+  padding: 0px;
+}
+
+.main-column{
+  padding: 0px;
+  // max-width: 100%;
+
+}
+.cards-row{
+  display: grid;
+  justify-content: center;
+  align-content: center;
+}
+.stories-row{
+
+  justify-content: center;
+}

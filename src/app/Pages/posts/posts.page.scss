@@ -16,4 +16,19 @@
     transition: 0.4s linear all;
     opacity: 1;
   }
+
+  .parent-grid{
+    padding: 0px;
+  }
+  .cards-row{
+    display: grid;
+    justify-content: center;
+    align-content: center;
+  }
+  
+  .main-column{
+    padding: 0px;
+    // max-width: 100%;
+  
+  }
   
