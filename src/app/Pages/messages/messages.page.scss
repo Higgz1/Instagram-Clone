@@ -25,3 +25,20 @@
   
     fill: #F9F9F9;
   }
+
+  .parent-grid{
+    padding: 0px;
+  }
+  
+  .main-column{
+    padding: 0px;
+    // max-width: 100%;
+  
+  }
+  .cards-row{
+    display:inherit;
+    justify-content: center;
+    align-content: center;
+
+    grid-auto-flow: column;
+  }
