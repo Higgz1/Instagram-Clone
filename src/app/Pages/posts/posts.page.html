@@ -22,14 +22,3 @@
 </ion-content>
 <div class="backdrop" [ngClass]="backdropVisible ? 'fade-in' : 'fade'" tappable (click)="closeDrawer()"></div>
 <app-drawer (openStateChanged)="toggleBackdrop($event)"></app-drawer>
-
-
-<!-- <ion-grid class="parent-grid">
-  <ion-row class="cards-row">
-    <ion-col class="main-column" size-sm="4" size-md="6"  size-lg="6" size-xl="12">
-      
-  <app-feed *ngFor="let post of images" [user]="user" [post]="post"></app-feed>
-
-    </ion-col>
-  </ion-row>
-</ion-grid> -->

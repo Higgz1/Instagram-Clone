@@ -4,62 +4,73 @@
       <ion-back-button></ion-back-button>
     </ion-buttons>
     <ion-title>Profile</ion-title>
-  </ion-toolbar>
+  </ion-toolbar> 
 </ion-header>
 
 <ion-content>
-  <ion-item lines="none">
-    <ion-avatar item-start id="avatar">
-      <img [src]="user.picture.medium" />
-    </ion-avatar>
+  <ion-grid class="grid">
+    <ion-row class="profile-row">
+      <ion-col size-sm="4" size-md="4" size-lg="4" size-xl="4">
+        <ion-item lines="none">
+          <ion-avatar item-start id="avatar">
+            <img [src]="user.picture.medium" />
+          </ion-avatar>
 
-    <ion-text id="posts-p">
-      <h6 id="post-count">{{posts}}</h6>
-      <p id="posts">posts</p>
-    </ion-text>
-    <ion-text id="Followers-p">
-      <h6 id="post-count">{{followers}}</h6>
-      <p id="posts">Followers</p>
-    </ion-text>
-    <ion-text id="Following-p">
-      <h6 id="post-count">{{following}}</h6>
-      <p id="posts">Following</p>
-    </ion-text>
-  </ion-item>
+          <ion-text id="posts-p">
+            <h6 id="post-count">{{posts}}</h6>
+            <p id="posts">posts</p>
+          </ion-text>
+          <ion-text id="Followers-p">
+            <h6 id="post-count">{{followers}}</h6>
+            <p id="posts">Followers</p>
+          </ion-text>
+          <ion-text id="Following-p">
+            <h6 id="post-count">{{following}}</h6>
+            <p id="posts">Following</p>
+          </ion-text>
+        </ion-item>
 
-  <ion-text>
-    <h6 id="username">{{user.login.username}}</h6>
-    <p id="location">{{user.location.country}}</p>
-  </ion-text>
+        <ion-text>
+          <h6 id="username">{{user.login.username}}</h6>
+          <p id="location">{{user.location.country}}</p>
+        </ion-text>
+      </ion-col>
+    </ion-row>
 
-  <ion-segment scrollable  [(ngModel)]="segmentModel" (ionChange)="segmentChanged($event)">
-    <ion-segment-button value="home">
-      <ion-icon name="grid-outline"></ion-icon>
-    </ion-segment-button>
+    <ion-row class="profile-row">
+      <ion-col  size-sm="4" size-md="4" size-lg="4" size-xl="4">
+        <ion-segment
+          scrollable
+          [(ngModel)]="segmentModel"
+          (ionChange)="segmentChanged($event)"
+        >
+          <ion-segment-button value="home">
+            <ion-icon name="grid-outline"></ion-icon>
+          </ion-segment-button>
 
-    <ion-segment-button value="tagged">
-      <ion-icon name="file-tray-outline"></ion-icon>
-    </ion-segment-button>
-  </ion-segment>
+          <ion-segment-button value="tagged">
+            <ion-icon name="file-tray-outline"></ion-icon>
+          </ion-segment-button>
+        </ion-segment>
+      </ion-col>
+    </ion-row>
 
-  <ion-grid class="grid" >
     <div *ngIf="segmentModel === 'home'">
-      <ion-row >
-        <ion-col (click)="viewPost(image.id)" size="4" size-md *ngFor="let image of Images" class="column">
+      <ion-row>
+        <ion-col (click)="viewPost(image.id)" class="img-wrapper"  sizeLg="4" sizeMd="4" sizeXs="4" *ngFor="let image of Images">
           <img class="image" [src]="image.download_url" />
         </ion-col>
       </ion-row>
+
     </div>
 
     <div *ngIf="segmentModel === 'tagged'">
       <ion-row>
-        <div class="container">
-          <img class="noItems-Image" src="assets/flame-1266.png" />
-        </div>
-        <div class="container-text">
-          <p>No Tagged Pictures Found</p>
-        </div>
+        <ion-col class="img-wrapper"  sizeLg="4" sizeMd="6" sizeXs="12" >
+            <img class="noItems-Image" src="assets/flame-1266.png" />
+        </ion-col>
       </ion-row>
     </div>
+
   </ion-grid>
 </ion-content>
