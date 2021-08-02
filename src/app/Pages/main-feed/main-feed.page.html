@@ -5,8 +5,6 @@
 </ion-header>
 
 <ion-content [scrollEvents]="true" (ionScroll)="fabDisplay($event)">
-
-
   <ion-refresher slot="fixed" (ionRefresh)="refresh($event)" pullMin="100" pullMax="200">
     <ion-refresher-content 
       pullingIcon="arrow-down-outline" 
@@ -16,17 +14,29 @@
     </ion-refresher-content>
   </ion-refresher>
 
+  <ion-grid class="parent-grid">
 
-  <ion-slides [options]="set">
-    <ion-slide *ngFor="let item of combined">
-      <ion-avatar id="stories-image" (click)="storiesImage(item)" >
-        <img id="avatar-img" [src]="item.user.picture.thumbnail" />
-      </ion-avatar>
-    </ion-slide> 
-  </ion-slides>
+    <ion-row class="stories-row">
+      <ion-col class="main-column" size-sm="4" size-md="4"  size-lg="4" size-xl="4">
+        <ion-slides [options]="set" #slides>
+          <ion-slide *ngFor="let item of combined">
+            <ion-avatar id="stories-image" (click)="storiesImage(item)" >
+              <img id="avatar-img" [src]="item.user.picture.thumbnail" />
+            </ion-avatar>
+          </ion-slide> 
+        </ion-slides>
+      </ion-col>
 
-  <app-feed *ngFor="let feed of combined" [feed]="feed"></app-feed>
+    </ion-row>
 
+    <ion-row class="cards-row">
+      <ion-col class="main-column" size-sm="4" size-md="6"  size-lg="6" size-xl="12">
+        <app-feed *ngFor="let feed of combined" [feed]="feed"></app-feed>
+      </ion-col>
+    </ion-row>
+
+    
+  </ion-grid>
 
   <ion-fab *ngIf="isShown" slot="fixed" vertical="bottom" horizontal="end" >
     <ion-fab-button (click)="ScrollToTop()" size="small">
@@ -39,8 +49,11 @@
       loadingSpinner="bubbles"
       >
     </ion-infinite-scroll-content>
-  </ion-infinite-scroll>
+  </ion-infinite-scroll> 
+
 
 </ion-content>
+
 <div class="backdrop" [ngClass]="backdropVisible ? 'fade-in' : 'fade'" tappable (click)="closeDrawer()"></div>
 <app-drawer (openStateChanged)="toggleBackdrop($event)"></app-drawer>
+

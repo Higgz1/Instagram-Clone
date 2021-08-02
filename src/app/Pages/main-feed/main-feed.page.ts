@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component, OnInit, ViewChild } from '@angular/core';
+import { ChangeDetectorRef, Component, HostListener, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { IonContent, LoadingController, ModalController } from '@ionic/angular';
 import { DrawerComponent } from 'src/app/components/drawer/drawer.component';
@@ -34,6 +34,11 @@ export class MainFeedPage implements OnInit {
 
   @ViewChild(IonContent, { static: false }) content: IonContent;
   @ViewChild(DrawerComponent) drawer: DrawerComponent;
+  @ViewChild('slides',{static: true}) slides;
+  @HostListener('window:resize')
+   onResize() {
+   setTimeout(() => this.slides.update(), 50);
+  }
   backdropVisible = false;
 
 
@@ -50,17 +55,18 @@ export class MainFeedPage implements OnInit {
     this.drawerService.drawerOpen.subscribe(drawerData => {
       console.log(drawerData);
 
-      if (drawerData && drawerData.open ) {
+      if (drawerData && drawerData.open) {
         this.drawer.openDrawer(drawerData.feed);
       }
     })
   }
 
-  ngOnInit() {}
+  ngOnInit() { }
 
   ionViewDidEnter() {
     this.loadData();
   }
+
   async loadData() {
     this.page = Math.floor((Math.random() * 100) + 1);
     if (this.page >= 90) {
@@ -74,18 +80,14 @@ export class MainFeedPage implements OnInit {
     await loading.present();
 
     this.usersService.getUsers(this.page).subscribe((resp: any) => {
-      // console.log('Users', resp.results);
       this.users = resp.results;
 
       this.imagesService.getImages(this.page).subscribe((resp: any) => {
-        // console.log('Images', resp);
         this.images = resp;
 
         this.combined = this.users.map((user, index) => {
           return { user: user, picture: this.images[index] };
         });
-        // console.log(this.combined);
-
       });
 
       loading.dismiss();
@@ -94,7 +96,6 @@ export class MainFeedPage implements OnInit {
 
   moreData(event) {
     this.page++
-    // console.log('page increments', this.page);
 
     this.usersService.getUsers(this.page).subscribe((resp: any) => {
 
@@ -106,7 +107,7 @@ export class MainFeedPage implements OnInit {
         this.newCombined = this.newUsers.map((newUser, index) => {
           return { user: newUser, picture: this.newImages[index] };
         });
-        // console.log('new combined', this.newCombined);
+
         this.combined.push(...this.newCombined)
 
       });
@@ -128,15 +129,14 @@ export class MainFeedPage implements OnInit {
     const screenSize = event.target.clientHeight;
 
     let bottomPosition = screenSize + event.detail.scrollTop;
-    if (bottomPosition >= 900) {
+    if (bottomPosition >= 1200) {
       this.isShown = true;
-    } else if (bottomPosition < 800) {
+    } else if (bottomPosition < 1500) {
       this.isShown = false;
     }
   }
 
   profile(user) {
-    // console.log(user);
     this.router.navigate(['/profile', { user: JSON.stringify(user) }]);
   }
 
