@@ -18,7 +18,7 @@
 
     <ion-row class="stories-row">
       <ion-col class="main-column" size-sm="4" size-md="4"  size-lg="4" size-xl="4">
-        <ion-slides [options]="set">
+        <ion-slides [options]="set" #slides>
           <ion-slide *ngFor="let item of combined">
             <ion-avatar id="stories-image" (click)="storiesImage(item)" >
               <img id="avatar-img" [src]="item.user.picture.thumbnail" />
