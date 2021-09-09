@@ -95,7 +95,7 @@ Project Link: https://github.com/Higgz1/Instagram-Clone.git]
 <!-- [license-shield]: https://img.shields.io/github/license/othneildrew/Best-README-Template.svg?style=for-the-badge
 [license-url]: https://github.com/othneildrew/Best-README-Template/blob/master/LICENSE.txt -->
 
-[main-feed]: Images/main-feed.png
+[main-feed]: Images/feed.png
 [profile]: Images/profile.png
 [Messages]: Images/messages.png
 [Comments]: Images/sample-comments.png
