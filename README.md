@@ -71,7 +71,7 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 <!-- Your Name - [@your_twitter](https://twitter.com/your_username) - email@example.com -->
 
-Project Link: https://github.com/Higgz1/Instagram-Clone.git](https://github.com/Higgz1/Instagram-Clone.git)
+Project Link: https://github.com/Higgz1/Instagram-Clone.git]
 
 
 
