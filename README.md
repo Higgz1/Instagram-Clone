@@ -53,7 +53,10 @@ Clone this repository to your local machine
 <!-- USAGE EXAMPLES -->
 ## Over View
 
-[[product-screenshot]]
+ ![Main Feed][main-feed] ![Profile][profile]
+ ![Messages][Messages] ![Comments][Comments]
+ ![Socials][Socials] ![User Post][user-posts]
+
 
 
 
@@ -75,17 +78,13 @@ Project Link: [https://github.com/your_username/repo_name](https://github.com/yo
 
 <!-- ACKNOWLEDGEMENTS -->
 ## Acknowledgements
-* [GitHub Emoji Cheat Sheet](https://www.webpagefx.com/tools/emoji-cheat-sheet)
+* [Ionic Framework](https://ionicframework.com/docs)
+* [Random Users API](https://randomuser.me/)
+* [Lorem Picsum](https://picsum.photos/)
+* [Devdactic](https://devdactic.com/)
 * [Img Shields](https://shields.io)
 * [Choose an Open Source License](https://choosealicense.com)
 * [GitHub Pages](https://pages.github.com)
-* [Animate.css](https://daneden.github.io/animate.css)
-* [Loaders.css](https://connoratherton.com/loaders)
-* [Slick Carousel](https://kenwheeler.github.io/slick)
-* [Smooth Scroll](https://github.com/cferdinandi/smooth-scroll)
-* [Sticky Kit](http://leafo.net/sticky-kit)
-* [JVectorMap](http://jvectormap.com)
-* [Font Awesome](https://fontawesome.com)
 
 
 
@@ -105,7 +104,12 @@ Project Link: [https://github.com/your_username/repo_name](https://github.com/yo
 [license-url]: https://github.com/othneildrew/Best-README-Template/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/othneildrew
-[product-screenshot]: Images/main-feed.png
+[main-feed]: Images/main-feed.png
+[profile]: Images/profile.png
+[Messages]: Images/messages.png
+[Comments]: Images/sample-comments.png
+[Socials]: Images/social-share.png
+[user-posts]: Images/user-posts.png
 
 
 
