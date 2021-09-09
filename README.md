@@ -1,4 +1,4 @@
-## Running the app
+## Getting Started
 
 ```bash
 # Install dependencies
