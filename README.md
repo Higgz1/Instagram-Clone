@@ -1,11 +1,7 @@
 ## Getting Started
 
-```bash
 # Install dependencies
-$ npm i
-$ npm install @ionic-native/social-sharing
-$ npm i @ionic-native/core (social-sharing plugin needs this )
-
-# run
-$ ionic serve
+1.Clone the repo
+2.run npm i to install the dependencies
+3.run Ionic server in terminal to run the project
 
