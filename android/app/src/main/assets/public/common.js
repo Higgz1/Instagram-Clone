@@ -476,6 +476,44 @@ ImagesService = (0,tslib__WEBPACK_IMPORTED_MODULE_1__.__decorate)([
 
 
 
+/***/ }),
+
+/***/ 1509:
+/*!*************************************************!*\
+  !*** ./src/app/Services/Users/users.service.ts ***!
+  \*************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "UsersService": () => (/* binding */ UsersService)
+/* harmony export */ });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! tslib */ 4762);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ 7716);
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/common/http */ 1841);
+
+
+
+let UsersService = class UsersService {
+    constructor(http) {
+        this.http = http;
+    }
+    getUsers(page) {
+        return this.http.get('https://randomuser.me/api/?page=' + page + '&results=10');
+    }
+};
+UsersService.ctorParameters = () => [
+    { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_0__.HttpClient }
+];
+UsersService = (0,tslib__WEBPACK_IMPORTED_MODULE_1__.__decorate)([
+    (0,_angular_core__WEBPACK_IMPORTED_MODULE_2__.Injectable)({
+        providedIn: 'root'
+    })
+], UsersService);
+
+
+
 /***/ })
 
 }]);
